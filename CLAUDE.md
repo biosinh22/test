@@ -1,6 +1,6 @@
 # OV Organoid 3D vs 2D 프로젝트
 
-난소암 세포주(SKOV3, A2780, HeyA8, OVTOKO)의 2D vs 3D(오가노이드) RNA-seq 비교 분석. 목표: 3D의 생물학적·임상적 타당성 근거 + 세포주별 CCLE mutation과 연결된 치료 타겟(gene/pathway) 발굴.
+난소암 세포주 8종(4개 아형: HGSOC OVCAR-3·OVSAHO / LGSOC HeyA8 / Endometrioid SKOV-3·A2780 / Clear cell OVTOKO·RMG1·RMG2)의 2D vs 3D(오가노이드) RNA-seq 비교 분석. 1차 ppt는 SKOV3, A2780, HeyA8, OVTOKO 4종만 포함. 목표: 3D의 생물학적·임상적 타당성 근거 + 세포주별 CCLE mutation과 연결된 치료 타겟(gene/pathway) 발굴.
 
 ## 프로젝트 문서 (진행 상황의 기준)
 
