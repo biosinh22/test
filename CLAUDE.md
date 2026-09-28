@@ -12,7 +12,7 @@ https://claude.ai/code/artifact/fe866b38-7b85-4c83-b3e8-2fc0f85712e4
 
 ## Notion 사본과 동기화
 
-Notion: https://app.notion.com/p/3e9431862b5681c6ba76eddeece5f9c9 (Claude Docs와 같은 내용)
+Notion: https://app.notion.com/p/3e9431862b5681c6ba76eddeece5f9c9 (Claude Docs 메인 탭과 같은 내용). "배경 공부" 탭은 Notion 하위 페이지 https://app.notion.com/p/3e9431862b56810ea791e7c2e07aee1f 와 짝. 짝 목록과 절차는 `sync/SYNC.md`.
 
 - 세션 시작 시 두 문서를 모두 읽고, 한쪽에만 있는 사용자 수정을 다른 쪽에 반영한 뒤 작업을 시작한다.
 - 작업 중 한쪽을 고치면 같은 턴에 다른 쪽도 같은 내용으로 고친다.

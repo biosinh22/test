@@ -2,7 +2,7 @@
 
 <mention-date start="2026-09-28"/> · @shinhee
 
-> Notion 사본: [OV Organoid 3D vs 2D Project](https://app.notion.com/p/3e9431862b5681c6ba76eddeece5f9c9) — 같은 내용이며 Claude가 양쪽을 동기화한다.
+> Notion: [OV Organoid 3D vs 2D Project](https://app.notion.com/p/3e9431862b5681c6ba76eddeece5f9c9) — 같은 내용이며 Claude가 양쪽을 동기화함.
 
 ## 프로젝트 개요
 
@@ -202,28 +202,28 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 
 \[embedded content: 진행 흐름 · 8단계, P4에서 합류\]
 
-mutation 쪽(P1)과 RNA 쪽(P2→P3)은 동시에 진행할 수 있고, 둘이 P4에서 만나야 타겟 후보가 나온다.<br>완료한 항목은 체크.
+mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 타겟 후보 선정 할 수 있음.
 
-**P0 배경 공부**
+**0. 배경 공부**
 
 - [ ] 난소암 아형(프로젝트 4종) 개념과 대표 mutation 정리
 - [ ] 세포주 8종 프로필 카드 (아래 Phase 0 상세)
 - [ ] 2D vs 3D(오가노이드/스페로이드) 배양 차이 리뷰 논문 1–2편
 
-**P1 CCLE mutation**
+**1. CCLE mutation**
 
 - [ ] DepMap portal에서 8개 세포주 mutation 다운로드 (OVTOKO, RMG1, RMG2 등록 여부 확인)
 - [ ] driver 유전자 기준으로 필터 (hotspot missense, truncating)
 - [ ] copy number(예: ERBB2 증폭)와 발현량도 함께 확인
 - [ ] mutation → pathway 매핑 표
 
-**P2 RNA 재점검**
+**2. RNA 재점검**
 
 - [ ] 32개 샘플 count matrix 확보 (ppt DEG 157/39의 분석 조건: 툴, cutoff, pooled 여부 포함)
 - [ ] 샘플 메타데이터 표 작성 (sample, cell_line, batch, dimension, passage)
 - [ ] QC: 전체·세포주별 PCA, passage 흐름, 배치 확인
 
-**P3 세포주별 pathway**
+**3. 세포주별 pathway**
 
 - [ ] 세포주별 2D vs 3D DEG (같은 passage끼리 짝지어 비교)
 - [ ] 3D passage 경향 분석 (유지형 vs 증가형 vs 일시형)
@@ -231,21 +231,21 @@ mutation 쪽(P1)과 RNA 쪽(P2→P3)은 동시에 진행할 수 있고, 둘이 P
 - [ ] 4종 공통 pathway vs 세포주(아형) 특이 pathway 분리
 - [ ] 파이프라인 코드 정리 (메타데이터만 바꾸면 나머지 4종에 재사용)
 
-**P4 교차 분석**
+**4. 교차 분석**
 
 - [ ] 세포주별 mutation-pathway와 3D에서 변한 pathway가 겹치는 조합 찾기
 
-**P5 타겟 선정**
+**5.. 타겟 선정**
 
 - [ ] 후보별 druggability (DGIdb, 승인·임상 약물)
 - [ ] DepMap CRISPR dependency, PRISM/GDSC 약물 반응 확인
 - [ ] 난소암 임상 근거 문헌 확인
 
-**P6 스토리 정리**
+**6. 스토리 정리**
 
 - [ ] "3D 타당성" 파트 + "타겟" 파트 슬라이드 초안
 
-**P7 검증 제안 (선택)**
+**7. 검증 제안 (선택)**
 
 - [ ] 2D vs 3D 약물 반응 실험, qPCR/western 검증안
 
@@ -312,6 +312,8 @@ mutation 쪽(P1)과 RNA 쪽(P2→P3)은 동시에 진행할 수 있고, 둘이 P
 ## Background Study
 
 핵심은 "4개 세포주가 사실 서로 다른 난소암 subtype이다"를 먼저 이해하는 것.<br>-\> subtype이 다르면 driver mutation과 pathway가 다르고, 3D에서 변하는 pathway도 달라짐.<br>그래서 세포주별 분석(P3)과 mutation 연결(P4)의 해석 기준이 여기서 정해진다.
+
+난소암 개요와 세포주 8종 상세 프로필은 별도 탭: 배경 공부: 난소암·세포주
 
 ### -난소암 아형: 주요 5종, 본 프로젝트에서는 4종
 
@@ -544,15 +546,22 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 - [ ] 3D는 실제 오가노이드인가, 스페로이드인가? (배양 조건, 기간)
 - [ ] 슬라이드 6–9의 세포주별 그림 3장은 각각 무엇인가? → 답: PCA, dendrogram, gene set heatmap ("세포주별 결과" 섹션)
 
+---
+
 ## 작업 로그
 
-최신이 위. 날짜 · 한 일 · 다음.
+최신 기준 내림차순
 
 <table header-row="true" header-column="false">
 	<tr>
 		<td>날짜</td>
 		<td>한 일</td>
 		<td>다음</td>
+	</tr>
+	<tr>
+		<td>2026-09-28</td>
+		<td>배경 공부 탭 작성: 난소암 개요(통계·기원·치료), 세포주 8종 비교·상세</td>
+		<td>CCLE로 변이·백금 반응 확인, 배경 공부 탭 검토</td>
 	</tr>
 	<tr>
 		<td>2026-09-28</td>
