@@ -3,9 +3,9 @@
 claude.ai 루틴 화면에서 만들 때 아래 값을 그대로 쓴다.
 
 - 이름: OV 프로젝트 Docs↔Notion 동기화
-- 일정: 매일 10:00, 19:00 (KST) — UTC cron `0 1,10 * * *`
+- 일정: 매일 10:00 (KST) — UTC cron `0 1 * * *`
 - 실행 방식: 실행마다 새 세션
-- 커넥터: Notion, Claude Docs
+- 커넥터: Notion, Claude Docs (루틴 ID `trig_01L6fKs2Lm3d2UbRCGvTgtJj`, claude.ai에서 사용자가 생성)
 - 저장소: biosinh22/test (브랜치 `claude/charming-brown-6kr33c`)
 - 알림: 푸시
 
