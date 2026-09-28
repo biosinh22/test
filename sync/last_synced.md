@@ -6,7 +6,9 @@
 
 ## 프로젝트 개요
 
-난소암(Ovarian cancer, OV) 세포주 4종을 2D와 3D(organoid)로 배양해 RNA-seq을 비교하고, **3D가 2D보다 생물학적·임상적으로 더 타당하다는 근거**와 그 위에서 **치료로 이어질 수 있는 target (gene/pathway)** 을 찾는 것을 목표로 한다.<br>ppt 제목: *세포주의 3D 배양 타당성 및 임상적 가치 규명 — 분석결과 2*.
+*세포주의 3D 배양 타당성 및 임상적 가치 규명*
+
+난소암(Ovarian cancer, OV) 세포주 4종을 2D와 3D(organoid)로 배양해 RNA-seq을 비교하고, **3D가 2D보다 생물학적·임상적으로 더 타당하다는 근거**와 그 위에서 **치료로 이어질 수 있는 target (gene/pathway)** 을 찾는 것을 목표로 한다.
 
 **대상 세포주: 4개 아형 × 8종.** HGSOC(OVCAR-3, OVSAHO), LGSOC(HeyA8), Endometrioid(SKOV-3, A2780), Clear cell(OVTOKO, RMG1, RMG2). 현재 이 중 4종(SKOV3, A2780, HeyA8, OVTOKO)만 분석한 상태. 나머지 4종은 데이터 도착 시점 아직 미정, 공부 해 두고 분석은 이 4종으로 파이프라인을 확립한 뒤 그대로 적용 예정.
 
@@ -45,9 +47,7 @@
 	</tr>
 </table>
 
-**1차 해석:** 3D에서 glycolysis, hypoxia, ECM/세포표면 관련 term이 상위. 3D 구조 내부의 산소 구배와 세포-기질 상호작용이 실제 종양과 비슷하다는 방향의 시그널로 보임.
-
-**\-\>** 이 1차 분석을 (1) cell line 별로 쪼개 해석하고, (2) CCLE mutation과 연결하고, (3) target 후보와 치료 가능성까지 스토리를 만들어야 함
+**1차 해석:** 3D에서 glycolysis, hypoxia, ECM/세포표면 관련 term이 상위. 3D 구조 내부의 산소 구배와 세포-기질 상호작용이 실제 종양과 비슷하다는 방향의 시그널로 보임.<br>→ 이 1차 분석을 (1) cell line 별로 쪼개 해석하고, (2) CCLE mutation과 연결하고, (3) target 후보와 치료 가능성까지 스토리를 만들어야 함
 
 ## 세포주별 결과 (ppt 6–9)
 
@@ -164,19 +164,12 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 - **batch가 cell line과 겹침** (1차 = SKOV3·A2780, 2차 = HeyA8·OVTOKO)<br>batch effect와 cell line 차이를 분리할 수 없음. 비교를 항상 cell lien 안에서 하면 문제 없을 듯.
 - **2차 sample (251112)에만 P10** 있음<br>통합 분석에서는 공통 passage(P1, P3, P5)만 쓰거나 별도로 보거나.
 - **passage는 진짜 replicate이 아님**<br>같은 배양 시간을 시간에 따라 잰 것이라 p-value가 실제보다 낙관적으로 나올 수 있다. (알아두고 결과 발표 때 한계로 명시 필요)
-
-## 
-
-**할 일**
-
 - [ ] 원본 받기: heatmap 점수 표, 카테고리별 gene set 목록, 점수 계산법(GSVA? ssGSEA? z-score?), PCA 입력(전체 유전자인지 상위 변동 유전자인지, 정규화 방법)
 - [ ] 튀는 샘플 QC: A2780 3D P1, OVTOKO 3D P5, HeyA8 3D P3 — 라이브러리 크기, 매핑률, 검출 유전자 수, 미토콘드리아 비율, 실험 노트
 - [ ] "3D 안정 / 2D drift" 수치화: 2D끼리 vs 3D끼리 샘플 간 상관, passage별 P0와의 거리
 - [ ] heatmap을 통계로: 카테고리 점수를 같은 passage끼리 3D − 2D로 계산 → 세포주별 "3D에서 높음/낮음" 요약표
 - [ ] A2780 3D 배양 상태 확인 (오가노이드가 제대로 만들어졌는지, 사진)
 - [ ] (추가 아이디어) 환자 종양 발현 데이터와 비교해 3D가 2D보다 실제 종양에 가까운지 확인. "임상적 타당성"의 가장 직접적인 근거다. 단 TCGA-OV는 HGSOC 위주라 이 4종 아형에는 다른 데이터셋이 필요
-
-## 
 
 프로젝트 받을 때 적은 노트
 
@@ -191,23 +184,23 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 
 **이번 주 할 일 (샘플 데이터 없이 할 수 있는 것 위주)**
 
-1. 세포주 8종 프로필 공부 (아형, driver mutation, 배양 특성)
-2. cBioPortal/DepMap으로 8종 mutation 표 → mutation-pathway 매핑 표 (Phase 1)
-3. 2D vs 3D(오가노이드) 리뷰 논문 정리: 3D에서 흔히 보고되는 변화(hypoxia, ECM, stemness, 약물내성)
-4. heatmap 6개 카테고리에 쓸 gene set 후보 정리 (MSigDB Hallmark 등). 원본을 받기 전에 우리 기준을 준비
-5. 파이프라인 코드를 가상 데이터로 미리 작성·검증 (count matrix 오면 바로 실행)
-6. 환자 종양 비교용 공개 데이터셋 조사 (clear cell, endometrioid, LGSOC 포함)
+- [ ] 세포주 8종 프로필 공부 (아형, driver mutation, 배양 특성)
+- [ ] cBioPortal/DepMap으로 8종 mutation 표 → mutation-pathway 매핑 표 (1단계)
+- [ ] 2D vs 3D(오가노이드) 리뷰 논문 정리: 3D에서 흔히 보고되는 변화(hypoxia, ECM, stemness, 약물내성)
+- [ ] heatmap 6개 카테고리에 쓸 gene set 후보 정리 (MSigDB Hallmark 등). 원본을 받기 전에 우리 기준을 준비
+- [ ] 파이프라인 코드를 가상 데이터로 미리 작성·검증 (count matrix 오면 바로 실행)
+- [ ] 환자 종양 비교용 공개 데이터셋 조사 (clear cell, endometrioid, LGSOC 포함)
 
-## 단계별 계획과 체크리스트
+## 단계별 계획
 
-\[embedded content: 진행 흐름 · 8단계, P4에서 합류\]
+\[embedded content: 진행 흐름 · 8단계, 4단계에서 합류\]
 
 mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 타겟 후보 선정 할 수 있음.
 
 **0. 배경 공부**
 
 - [ ] 난소암 아형(프로젝트 4종) 개념과 대표 mutation 정리
-- [ ] 세포주 8종 프로필 카드 (아래 Phase 0 상세)
+- [ ] 세포주 8종 프로필 카드 (배경 공부 탭)
 - [ ] 2D vs 3D(오가노이드/스페로이드) 배양 차이 리뷰 논문 1–2편
 
 **1. CCLE mutation**
@@ -300,7 +293,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 		<td>7. 공통/특이 분리</td>
 		<td>4종 공통 vs 세포주(아형) 특이</td>
 		<td>NES 방향과 유의성 기준</td>
-		<td>후보 pathway 목록 → P4</td>
+		<td>후보 pathway 목록 → 4단계(교차 분석)</td>
 	</tr>
 </table>
 
@@ -311,11 +304,11 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 ## Background Study
 
-핵심은 "4개 세포주가 사실 서로 다른 난소암 subtype이다"를 먼저 이해하는 것.<br>-\> subtype이 다르면 driver mutation과 pathway가 다르고, 3D에서 변하는 pathway도 달라짐.<br>그래서 세포주별 분석(P3)과 mutation 연결(P4)의 해석 기준이 여기서 정해진다.
+핵심은 "4개 세포주가 사실 서로 다른 난소암 subtype이다"를 먼저 이해하는 것.<br>-\> subtype이 다르면 driver mutation과 pathway가 다르고, 3D에서 변하는 pathway도 달라짐.<br>그래서 세포주별 분석(3단계)과 mutation 연결(4단계)의 해석 기준이 여기서 정해진다.
 
 난소암 개요와 세포주 8종 상세 프로필은 별도 탭: 배경 공부: 난소암·세포주
 
-### -난소암 아형: 주요 5종, 본 프로젝트에서는 4종
+### - 난소암 아형: 주요 5종, 본 프로젝트에서는 4종
 
 상피성 난소암의 주요 조직형은 WHO 분류 기준 **5종**이다. 이 프로젝트는 그중 mucinous를 뺀 **4종**만 다룬다. mucinous는 약 3%로 드물고, 위장관암 전이와 구분이 어려워 세포주 패널에서 자주 빠진다.
 
@@ -372,7 +365,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 그 외 드문 유형(carcinosarcoma, mixed, undifferentiated, mesonephric-like 등)과 비상피성 종양(germ cell, sex cord-stromal)은 범위 밖이다. 비율은 교과서 기준 대략치라 리뷰 논문으로 확인할 것.
 
-### -세포주 8종 프로필 (문헌 기반 1차 정리, CCLE로 검증 필요)
+### - 세포주 8종 (문헌 기반 1차 정리, CCLE로 검증 필요)
 
 아형 분류는 프로젝트에서 받은 표 기준이다. "ppt"는 이번 분석결과 2에 들어간 세포주.
 
@@ -505,7 +498,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 - 둘 다 아닌 missense는 의미가 불확실한 경우가 많다. 표에 넣되 표시해 둔다.
 - A2780처럼 MMR 결핍 세포주는 변이 수가 매우 많다. driver 유전자 + hotspot/LoF 기준으로 걸러야 한다.
 
-### Step 4. 산출물 (Phase 0–1 끝났을 때 있어야 할 것)
+### Step 4. 산출물 (0–1단계 끝났을 때 있어야 할 것)
 
 세포주별 mutation → pathway 매핑 표. 아래 형식으로 채운다 (첫 줄은 예시, CCLE로 확인 후 수정).
 
@@ -526,7 +519,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 		<td>missense hotspot</td>
 		<td>PI3K/AKT/mTOR</td>
 		<td>alpelisib 등 PI3Kα 억제제</td>
-		<td>(P3 이후 기입)</td>
+		<td>(3단계 이후 기입)</td>
 	</tr>
 </table>
 
@@ -534,7 +527,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 
 ## 확인해야 할 질문
 
-- [ ] 나머지 4종(OVCAR-3, OVSAHO, RMG1, RMG2)의 2D/3D RNA 데이터는 있는가, 언제 나오는가? → 답: 아직 없고 시점 미정. 공부만 먼저, 분석은 4종으로.
+- [x] 나머지 4종(OVCAR-3, OVSAHO, RMG1, RMG2)의 2D/3D RNA 데이터는 있는가, 언제 나오는가? → 답: 아직 없고 시점 미정. 공부만 먼저, 분석은 4종으로.
 - [ ] DEG(157/39)와 pathway 결과는 4개 세포주 통합인가, 개별인가?
 - [ ] 세포주마다 2D/3D replicate는 몇 개이고, 같은 세포주 내 paired 비교인가? → 답: 생물학적 replicate 없음, passage별 1개씩 (위 "샘플 구성").
 - [ ] 3D P1은 2D P0에서 바로 만든 것인가? 같은 passage의 2D·3D는 같은 시점에 수확했나? (passage끼리 짝지어 비교하는 전제)
@@ -543,8 +536,8 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 - [ ] "타겟"의 범위: 치료 타겟(약물)인가, biomarker인가, 메커니즘 유전자인가?
 - [ ] pathway 분석 도구와 DB (DAVID? GO/KEGG?), DEG cutoff는?
 - [ ] 원본 count matrix와 DEG 표를 받을 수 있는가?
-- [ ] 3D는 실제 오가노이드인가, 스페로이드인가? (배양 조건, 기간)
-- [ ] 슬라이드 6–9의 세포주별 그림 3장은 각각 무엇인가? → 답: PCA, dendrogram, gene set heatmap ("세포주별 결과" 섹션)
+- [ ] 3D는 실제 오가노이드인가, 스페로이드인가? (배양 조건, 기간) -\> Organoid.
+- [x] 슬라이드 6–9의 세포주별 그림 3장은 각각 무엇인가? → 답: PCA, dendrogram, gene set heatmap ("세포주별 결과" 섹션)
 
 ---
 
@@ -585,7 +578,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 	</tr>
 	<tr>
 		<td>2026-09-28</td>
-		<td>프로젝트 문서 생성, ppt 내용 정리, Phase 0 가이드 작성</td>
+		<td>프로젝트 문서 생성, ppt 내용 정리, 0단계(배경 공부) 가이드 작성</td>
 		<td>아형 공부, DepMap mutation 추출</td>
 	</tr>
 	<tr>
