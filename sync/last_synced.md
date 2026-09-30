@@ -10,7 +10,7 @@
 
 난소암(Ovarian cancer, OV) 세포주 4종을 2D와 3D(organoid)로 배양해 RNA-seq을 비교하고, **3D가 2D보다 생물학적·임상적으로 더 타당하다는 근거**와 그 위에서 **치료로 이어질 수 있는 target (gene/pathway)** 을 찾는 것을 목표로 한다.
 
-**대상 세포주: 4개 아형 × 8종.** HGSOC(OVCAR-3, OVSAHO), LGSOC(HeyA8), Endometrioid(SKOV-3, A2780), Clear cell(OVTOKO, RMG1, RMG2). 현재 이 중 4종(SKOV3, A2780, HeyA8, OVTOKO)만 분석한 상태. 나머지 4종은 데이터 도착 시점 아직 미정, 공부 해 두고 분석은 이 4종으로 파이프라인을 확립한 뒤 그대로 적용 예정.
+**대상 세포주: 8종 (아형은 DepMap 기준).** HGSOC(OVCAR-3, OVSAHO, HeyA8), SOC·장액성 등급 미표기(SKOV-3), Endometrioid(A2780), Clear cell(OVTOKO, RMG1, RMG2). 현재 이 중 4종(SKOV3, A2780, HeyA8, OVTOKO)만 분석한 상태. 나머지 4종은 데이터 도착 시점 아직 미정, 공부 해 두고 분석은 이 4종으로 파이프라인을 확립한 뒤 그대로 적용 예정.
 
 ## ppt 내용 (이미 분석 된 것)
 
@@ -189,7 +189,7 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 - [ ] 2D vs 3D(오가노이드) 리뷰 논문 정리: 3D에서 흔히 보고되는 변화(hypoxia, ECM, stemness, 약물내성)
 - [ ] heatmap 6개 카테고리에 쓸 gene set 후보 정리 (MSigDB Hallmark 등). 원본을 받기 전에 우리 기준을 준비
 - [ ] 파이프라인 코드를 가상 데이터로 미리 작성·검증 (count matrix 오면 바로 실행)
-- [ ] 환자 종양 비교용 공개 데이터셋 조사 (clear cell, endometrioid, LGSOC 포함)
+- [ ] 환자 종양 비교용 공개 데이터셋 조사 (HGSOC, clear cell, endometrioid 포함)
 
 ## 단계별 계획
 
@@ -199,13 +199,13 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 **0. 배경 공부**
 
-- [ ] 난소암 아형(프로젝트 4종) 개념과 대표 mutation 정리
+- [ ] 난소암 아형(프로젝트 세포주의 아형, DepMap 기준) 개념과 대표 mutation 정리
 - [ ] 세포주 8종 프로필 카드 (배경 공부 탭)
 - [ ] 2D vs 3D(오가노이드/스페로이드) 배양 차이 리뷰 논문 1–2편
 
 **1. CCLE mutation**
 
-- [ ] DepMap portal에서 8개 세포주 mutation 다운로드 (OVTOKO, RMG1, RMG2 등록 여부 확인)
+- [ ] DepMap portal에서 8개 세포주 mutation 다운로드 (등록 확인 완료: RMG2만 미등록, OVCAR3는 NIHOVCAR3)
 - [ ] driver 유전자 기준으로 필터 (hotspot missense, truncating)
 - [ ] copy number(예: ERBB2 증폭)와 발현량도 함께 확인
 - [ ] mutation → pathway 매핑 표
@@ -308,9 +308,9 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 난소암 개요와 세포주 8종 상세 프로필은 별도 탭: 배경 공부: 난소암·세포주
 
-### - 난소암 아형: 주요 5종, 본 프로젝트에서는 4종
+### - 난소암 아형: 주요 5종, 본 프로젝트 세포주는 3종 (DepMap 기준)
 
-상피성 난소암의 주요 조직형은 WHO 분류 기준 **5종**이다. 이 프로젝트는 그중 mucinous를 뺀 **4종**만 다룬다. mucinous는 약 3%로 드물고, 위장관암 전이와 구분이 어려워 세포주 패널에서 자주 빠진다.
+상피성 난소암의 주요 조직형은 WHO 분류 기준 **5종**이다. DepMap 표기로 보면 이 프로젝트 세포주는 그중 **HGSOC·Endometrioid·Clear cell 3종**에 속하고, LGSOC로 등록된 세포주는 없다. mucinous는 뺐다. mucinous는 약 3%로 드물고, 위장관암 전이와 구분이 어려워 세포주 패널에서 자주 빠진다.
 
 <table header-row="true" header-column="false">
 	<tr>
@@ -319,7 +319,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 		<td>대표 mutation</td>
 		<td>핵심 pathway</td>
 		<td>치료 연결 예</td>
-		<td>이 프로젝트</td>
+		<td>이 프로젝트 (DepMap 기준)</td>
 	</tr>
 	<tr>
 		<td>High-grade serous (HGSOC)</td>
@@ -327,7 +327,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 		<td>TP53 (거의 전부), BRCA1/2</td>
 		<td>DNA 손상 복구(HR) 결핍, copy number 불안정</td>
 		<td>PARP inhibitor</td>
-		<td>포함</td>
+		<td>포함 (OVCAR-3, OVSAHO, HeyA8)</td>
 	</tr>
 	<tr>
 		<td>Endometrioid</td>
@@ -335,7 +335,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 		<td>CTNNB1, PIK3CA, ARID1A, PTEN, MMR 결핍</td>
 		<td>Wnt/β-catenin, PI3K/AKT</td>
 		<td>PI3K 계열, 면역항암제(MMR 결핍)</td>
-		<td>포함</td>
+		<td>포함 (A2780)</td>
 	</tr>
 	<tr>
 		<td>Clear cell (OCCC)</td>
@@ -343,7 +343,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 		<td>ARID1A, PIK3CA</td>
 		<td>SWI/SNF, PI3K/AKT, 저산소·대사 특징</td>
 		<td>PI3K/AKT, BET inhibitor 연구</td>
-		<td>포함</td>
+		<td>포함 (OVTOKO, RMG-I, RMG-II)</td>
 	</tr>
 	<tr>
 		<td>Low-grade serous (LGSOC)</td>
@@ -351,7 +351,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 		<td>KRAS, BRAF, NRAS</td>
 		<td>RAS/MAPK</td>
 		<td>MEK inhibitor</td>
-		<td>포함</td>
+		<td>DepMap 등록 세포주 없음 (HeyA8이 문헌상 LGSOC 특징)</td>
 	</tr>
 	<tr>
 		<td>Mucinous</td>
@@ -363,81 +363,92 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 	</tr>
 </table>
 
+SKOV-3는 DepMap에서 SOC(Serous Ovarian Cancer)로 등록돼 있다. 장액성이지만 고등급/저등급이 표기되지 않아 위 표의 어느 줄에도 딱 들어가지 않는다.
+
 그 외 드문 유형(carcinosarcoma, mixed, undifferentiated, mesonephric-like 등)과 비상피성 종양(germ cell, sex cord-stromal)은 범위 밖이다. 비율은 교과서 기준 대략치라 리뷰 논문으로 확인할 것.
 
 ### - 세포주 8종 (문헌 기반 1차 정리, CCLE로 검증 필요)
 
-아형 분류는 프로젝트에서 받은 표 기준이다. "ppt"는 이번 분석결과 2에 들어간 세포주.
+아형은 [DepMap](https://depmap.org/portal/) 세포주 페이지의 Oncotree Subtype 표기 기준이다 (2026-09-30 확인). 문헌 분류와 다른 세포주(HeyA8, SKOV-3)는 메모에 적었다. "ppt"는 이번 분석결과 2에 들어간 세포주.
 
 <table header-row="true" header-column="false">
 	<tr>
-		<td>아형</td>
+		<td>아형 (DepMap)</td>
 		<td>세포주</td>
+		<td>DepMap ID</td>
 		<td>ppt</td>
-		<td>알려진 주요 변이 (확인 필요)</td>
+		<td>알려진 주요 변이</td>
 		<td>메모</td>
 	</tr>
 	<tr>
-		<td>HGSOC</td>
+		<td>HGSOC (DepMap 표기 확인 필요)</td>
 		<td>OVCAR-3</td>
+		<td>ACH-000001 (NIHOVCAR3)</td>
 		<td>–</td>
-		<td>TP53 missense, CCNE1 증폭</td>
-		<td>가장 널리 쓰이는 HGSOC 모델</td>
+		<td>TP53 missense, CCNE1 증폭 (확인 필요)</td>
+		<td>가장 널리 쓰이는 HGSOC 모델. DepMap 이름은 NIHOVCAR3</td>
 	</tr>
 	<tr>
 		<td>HGSOC</td>
 		<td>OVSAHO</td>
+		<td>ACH-000409</td>
 		<td>–</td>
-		<td>TP53 이상, RB1 결손</td>
+		<td>TP53 이상, RB1 결손 (확인 필요)</td>
 		<td>HGSOC 유사도가 높은 세포주로 평가됨</td>
 	</tr>
 	<tr>
-		<td>LGSOC</td>
+		<td>HGSOC</td>
 		<td>HeyA8</td>
+		<td>ACH-000542</td>
 		<td>○</td>
-		<td>KRAS, BRAF</td>
-		<td>HEY를 마우스 복강에서 계대한 파생주</td>
+		<td>KRAS, BRAF (확인 필요)</td>
+		<td>HEY를 마우스 복강에서 계대한 파생주. TP53 wild-type·MAPK 변이라 문헌에서는 LGSOC로 보기도 함 (이전 분류)</td>
 	</tr>
 	<tr>
-		<td>Endometrioid</td>
+		<td>SOC (장액성, 등급 미표기)</td>
 		<td>SKOV-3</td>
+		<td>ACH-000811</td>
 		<td>○</td>
-		<td>PIK3CA, ARID1A, TP53 결손(단백 없음), CDKN2A 결손, ERBB2 증폭</td>
-		<td>과거 serous로 알려졌던 세포주</td>
+		<td>PIK3CA H1047R, ARID1A Q586\*, TP53 S90Pfs\*33 (DepMap 확인) · CDKN2A 결손, ERBB2 증폭 (CN 확인 필요)</td>
+		<td>변이 양상이 endometrioid/clear cell에 가깝다는 보고가 있어 이전에는 Endometrioid로 분류</td>
 	</tr>
 	<tr>
-		<td>Endometrioid</td>
+		<td>Endometrioid (EOV)</td>
 		<td>A2780</td>
+		<td>ACH-000657</td>
 		<td>○</td>
-		<td>MMR 결핍, TP53 wild-type</td>
+		<td>MMR 결핍, TP53 wild-type (확인 필요)</td>
 		<td>PTEN/ARID1A/PIK3CA는 CCLE에서 확인</td>
 	</tr>
 	<tr>
-		<td>Clear cell</td>
+		<td>Clear cell (CCOV)</td>
 		<td>OVTOKO</td>
+		<td>ACH-000663</td>
 		<td>○</td>
-		<td>ARID1A</td>
+		<td>ARID1A (확인 필요)</td>
 		<td>BRD2 의존성, BET inhibitor 민감 보고</td>
 	</tr>
 	<tr>
-		<td>Clear cell</td>
+		<td>Clear cell (CCOV)</td>
 		<td>RMG1 (RMG-I)</td>
+		<td>ACH-000719</td>
 		<td>–</td>
-		<td>CCLE에서 확인</td>
+		<td>TERT promoter, FANCL W57\*, ARID1A·PIK3CA wild-type (DepMap 확인)</td>
 		<td>일본에서 수립된 clear cell 주</td>
 	</tr>
 	<tr>
-		<td>Clear cell</td>
+		<td>Clear cell (문헌 기준)</td>
 		<td>RMG2 (RMG-II)</td>
+		<td>DepMap 미등록</td>
 		<td>–</td>
-		<td>CCLE에서 확인</td>
-		<td>CCLE 등록 여부부터 확인</td>
+		<td>문헌 확인 필요</td>
+		<td>CCLE 데이터 없음</td>
 	</tr>
 </table>
 
-아형별로 나눠 보면, 이 패널은 아형마다 대표 pathway가 하나씩 걸리도록 짜여 있다: HGSOC = TP53/HR, LGSOC = MAPK, Endometrioid = PI3K·MMR, Clear cell = ARID1A·PI3K.
+DepMap 아형으로 나누면 HGSOC = TP53/HR(OVCAR-3, OVSAHO), Endometrioid = PI3K·MMR(A2780), Clear cell = ARID1A·PI3K(OVTOKO, RMG-I). 다만 HeyA8은 HGSOC 표기인데 MAPK 변이형이고, SKOV-3는 serous 표기인데 PIK3CA·ARID1A 변이형이다. 그래서 해석은 아형 이름보다 각 세포주의 실제 driver 변이를 기준으로 한다.
 
-**체크포인트:** SKOV3의 TP53은 문헌마다 "wild-type" 또는 "null"로 표기가 갈린다. CCLE에서 실제 변이 종류(truncating deletion 여부)를 꼭 확인할 것.
+**체크포인트:** SKOV3의 TP53은 문헌마다 "wild-type" 또는 "null"로 표기가 갈린다. DepMap 확인 결과 TP53 S90Pfs\*33 (frameshift, allele fraction 0.97)이라 단백이 만들어지지 않는 null이다.
 
 **가설 하나:** ppt의 상위 pathway(glycolysis, hypoxia)는 clear cell의 특징과 겹친다. clear cell 세포주(OVTOKO, 추후 RMG1·RMG2)가 이 신호를 주도하는지, 아니면 아형과 무관하게 공통인지가 첫 번째 볼 질문이다.
 
@@ -449,8 +460,8 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 **A. DepMap portal 웹 (코딩 없음, 세포주 하나씩)**
 
-1. [depmap.org/portal](https://depmap.org/portal/) 상단 검색창에 세포주 이름 입력 (예: OVCAR3). 하이픈 없이 입력하면 잘 걸린다.
-2. 세포주 페이지에서 lineage/subtype(어떤 아형으로 등록돼 있는지)부터 확인.
+1. [depmap.org/portal](https://depmap.org/portal/) 상단 검색창에 세포주 이름 입력 (예: SKOV3). 하이픈 없이 입력하면 잘 걸린다. OVCAR-3는 NIHOVCAR3로 등록돼 있다.
+2. 세포주 페이지에서 아형부터 확인. Oncotree Lineage(장기) \> Primary Disease(큰 질환군) \> Subtype(조직학적 아형) 순으로 좁아지고, 아형은 Oncotree Subtype 칸이다.
 3. Characterization(특성) 영역의 **Mutations** 표에서 유전자, 단백질 변화(예: p.H1047R), 변이 종류, hotspot 여부를 본다. Copy number와 Expression도 같은 곳에 있다.
 4. 반대로 유전자 이름(예: ARID1A)을 검색하면, 그 유전자에 변이가 있는 세포주 목록과 의존성 점수를 볼 수 있다.
 5. 탭 이름은 portal 업데이트에 따라 조금 다를 수 있다.
@@ -458,7 +469,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 **B. cBioPortal (코딩 없음, 8개를 한 그림으로)**
 
 1. [cBioPortal](https://www.cbioportal.org/) 에서 "Cancer Cell Line Encyclopedia (Broad, 2019)" study 선택.
-2. Query By Gene → 샘플 선택에서 사용자 지정 목록으로 8개 세포주 입력 (CCLE 이름 형식: `OVCAR3_OVARY`, `SKOV3_OVARY` 등).
+2. Query By Gene → 샘플 선택에서 사용자 지정 목록으로 8개 세포주 입력 (CCLE 이름 형식: `NIHOVCAR3_OVARY`, `SKOV3_OVARY` 등).
 3. 유전자 목록 입력: `TP53 KRAS BRAF NRAS PIK3CA PTEN ARID1A CTNNB1 BRCA1 BRCA2 ERBB2 CCNE1 CDKN2A RB1`
 4. **OncoPrint** 탭에서 세포주 × 유전자 격자로 mutation과 증폭/결손을 한눈에 본다. 발표용 그림으로도 쓸 수 있다.
 5. 2019 버전이라 최신 DepMap보다 오래됐다. 빠른 개관용.
@@ -475,7 +486,7 @@ import pandas as pd
 model = pd.read_csv("Model.csv")
 mut = pd.read_csv("OmicsSomaticMutations.csv", low_memory=False)
 
-names = ["OVCAR3", "OVSAHO", "HEYA8", "SKOV3", "A2780", "OVTOKO", "RMGI", "RMGII"]
+names = ["NIHOVCAR3", "OVSAHO", "HEYA8", "SKOV3", "A2780", "OVTOKO", "RMGI", "RMGII"]
 m = model[model["StrippedCellLineName"].isin(names)][
     ["ModelID", "CellLineName", "StrippedCellLineName", "OncotreeSubtype"]]
 print(m)
@@ -489,7 +500,7 @@ cols = ["StrippedCellLineName", "HugoSymbol", "ProteinChange", "VariantInfo", "H
 sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 ```
 
-"못 찾음"에 나온 세포주는 이름 표기가 다른 것이다. `model[model["CellLineName"].str.contains("RMG", case=False)]` 처럼 검색해 맞춘다.
+"못 찾음"에 나온 세포주는 이름 표기가 다른 것이다. `model[model["CellLineName"].str.contains("RMG", case=False)]` 처럼 검색해 맞춘다. RMG-II는 DepMap에 등록돼 있지 않다.
 
 **결과 읽는 법**
 
@@ -550,6 +561,11 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 		<td>날짜</td>
 		<td>한 일</td>
 		<td>다음</td>
+	</tr>
+	<tr>
+		<td>2026-09-30</td>
+		<td>세포주 아형을 DepMap(Oncotree Subtype) 기준으로 전면 수정: HeyA8 → HGSOC, SKOV-3 → SOC(등급 미표기), DepMap ID 추가, OVCAR-3 = NIHOVCAR3(ACH-000001), RMG-II 미등록</td>
+		<td>OVCAR-3 DepMap 아형 확인, 나머지 세포주 mutation CSV로 8종 표 채우기</td>
 	</tr>
 	<tr>
 		<td>2026-09-28</td>

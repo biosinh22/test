@@ -4,6 +4,8 @@
 
 난소암의 기본과 프로젝트에서 다루는 세포주 8종의 배경을 정리한 공부 자.<br>변이 정보는 문헌 기반이라 CCLE(DepMap)에서 최종 확인한다.
 
+아형은 [DepMap](https://depmap.org/portal/) 세포주 페이지의 Oncotree Subtype 표기를 따른다 (2026-09-30 확인). 문헌 분류와 다른 세포주(HeyA8, SKOV-3)는 4·5절에 적었다.
+
 ## 1. 난소암 (Ovarian Cancer, OV)
 
 발생은 적지만 사망률이 가장 높은 부인암으로, 환자 대부분이 암이 이미 복강 안에 퍼진 뒤에 발견된다.
@@ -55,7 +57,7 @@
 
 **난소암은 출발 조직이 다른 여러 암의 묶음이다.** 난소암의 약 90%는 상피성이고, 그중 상당수는 난소가 아닌 난관이나 자궁내막 조직에서 시작한다.
 
-\[embedded content: 출발 조직 → 아형 → 세포주 · 4개 아형\]
+\[embedded content: 출발 조직 → 아형 → 세포주 · DepMap 아형 기준\]
 
 출발 조직이 같은 아형끼리 변이가 비슷함. 자궁내막증에서 오는 endometrioid와 clear cell은 둘 다 ARID1A·PIK3CA가 흔하다.
 
@@ -160,7 +162,8 @@
 <table header-row="true" header-column="false">
 	<tr>
 		<td>세포주</td>
-		<td>아형</td>
+		<td>아형 (DepMap)</td>
+		<td>DepMap ID</td>
 		<td>유래</td>
 		<td>주요 변이</td>
 		<td>백금 반응</td>
@@ -168,7 +171,8 @@
 	</tr>
 	<tr>
 		<td>OVCAR-3</td>
-		<td>HGSOC</td>
+		<td>HGSOC (표기 확인 필요)</td>
+		<td>ACH-000001 (NIHOVCAR3)</td>
 		<td>1982, 복수. 항암치료(cyclophosphamide·doxorubicin·cisplatin) 후 진행한 환자</td>
 		<td>TP53, CCNE1 증폭 (확인 필요)</td>
 		<td>내성</td>
@@ -177,6 +181,7 @@
 	<tr>
 		<td>OVSAHO</td>
 		<td>HGSOC</td>
+		<td>ACH-000409</td>
 		<td>56세 일본인, 복막 전이 (FIGO III)</td>
 		<td>TP53, RB1 이상</td>
 		<td>확인 필요</td>
@@ -184,7 +189,8 @@
 	</tr>
 	<tr>
 		<td>HeyA8</td>
-		<td>LGSOC</td>
+		<td>HGSOC (문헌상 LGSOC 특징)</td>
+		<td>ACH-000542</td>
 		<td>HEY 세포를 누드 마우스 복강에서 키운 파생주</td>
 		<td>KRAS G12D, BRAF G464E(HEY), TP53 wild-type</td>
 		<td>확인 필요</td>
@@ -192,15 +198,17 @@
 	</tr>
 	<tr>
 		<td>SKOV-3</td>
-		<td>Endometrioid</td>
+		<td>SOC (장액성, 등급 미표기)</td>
+		<td>ACH-000811</td>
 		<td>1973, 64세 백인, 복수</td>
-		<td>PIK3CA, ARID1A, TP53 결손, ERBB2 증폭 (변이는 확인 필요)</td>
+		<td>PIK3CA H1047R, ARID1A Q586\*, TP53 S90Pfs\*33 (DepMap 확인), ERBB2 증폭 (CN 확인 필요)</td>
 		<td>내성</td>
 		<td>○</td>
 	</tr>
 	<tr>
 		<td>A2780</td>
 		<td>Endometrioid</td>
+		<td>ACH-000657</td>
 		<td>치료 전 환자 종양</td>
 		<td>ARID1A, PIK3CA, PTEN, MMR 결핍, TP53 wild-type</td>
 		<td>**민감** (내성 파생주 A2780cis 있음)</td>
@@ -209,6 +217,7 @@
 	<tr>
 		<td>OVTOKO</td>
 		<td>Clear cell</td>
+		<td>ACH-000663</td>
 		<td>항암치료(CAP 5–6회) 후 전이 병변</td>
 		<td>ARID1A</td>
 		<td>확인 필요 (치료 후 유래)</td>
@@ -217,14 +226,16 @@
 	<tr>
 		<td>RMG-I</td>
 		<td>Clear cell</td>
+		<td>ACH-000719</td>
 		<td>일본, Nozawa 등 수립</td>
-		<td>ARID1A wild-type</td>
+		<td>ARID1A wild-type, TERT promoter, FANCL W57\* (DepMap 확인)</td>
 		<td>확인 필요</td>
 		<td>–</td>
 	</tr>
 	<tr>
 		<td>RMG-II</td>
-		<td>Clear cell</td>
+		<td>Clear cell (문헌 기준)</td>
+		<td>DepMap 미등록</td>
 		<td>일본</td>
 		<td>MLH1 변이</td>
 		<td>확인 필요</td>
@@ -233,7 +244,7 @@
 </table>
 
 - **형태 차이:** OVTOKO는 간엽(mesenchymal) 성질, RMG-II는 상피(epithelial) 성질로 분류된 보고가 있다. 같은 clear cell이어도 EMT 점수가 다를 수 있다.
-- **피해야 할 오해:** SKOV-3와 A2780은 오랫동안 "난소암 대표 세포주"로 쓰였지만 HGSOC 모델은 아니다. 결과를 HGSOC로 일반화하면 안 된다.
+- **아형 표기 주의:** DepMap 표기와 문헌 분류가 다른 세포주가 있다. HeyA8은 DepMap에서 HGSOC지만 TP53 wild-type에 KRAS·BRAF 변이가 있어 LGSOC 특징을 보이고, SKOV-3는 SOC(장액성, 등급 미표기)지만 PIK3CA·ARID1A 변이로 endometrioid/clear cell에 가깝다는 보고가 있다. 그래서 SKOV-3·A2780 결과를 전형적인 HGSOC로 일반화하지 않는다.
 
 ## 5. 세포주별 상세
 
@@ -253,18 +264,18 @@
 - **주의:** 자라는 속도가 느리고 마우스 피하 이식이 잘 안 된다.
 - **이 프로젝트:** "실제 환자 종양에 가까운가"를 따질 때 가장 좋은 기준점이 될 수 있다. 느린 성장이 3D 형성에 영향을 줄 수 있다.
 
-### HeyA8 (LGSOC)
+### HeyA8 (HGSOC · DepMap)
 
 - **정체:** HEY 세포주(1985, 복막 종양의 이종이식에서 유래)를 누드 마우스 복강에 넣어 다시 얻은 파생주다.
 - **핵심 생물학:** KRAS G12D와 BRAF G464E(HEY에서 보고)로 RAS/MAPK 경로가 켜져 있다. TP53은 wild-type.
-- **주의:** 원래 아형이 명시되지 않았다가 최근에 LGSOC로 분류됐다. 마우스에서 잘 자라고 전이도 잘해 복막 전이 연구에 많이 쓴다.
+- **주의:** DepMap은 HGSOC로 표기한다. 하지만 TP53 wild-type에 KRAS·BRAF 변이가 있어 LGSOC 특징에 가깝고, 문헌에서는 LGSOC로 분류하기도 한다. 마우스에서 잘 자라고 전이도 잘해 복막 전이 연구에 많이 쓴다.
 - **이 프로젝트:** MAPK 경로가 3D에서 더 강해지면 MEK 억제제(또는 avutometinib + defactinib) 스토리로 이어질 수 있다.
 
-### SKOV-3 (Endometrioid)
+### SKOV-3 (SOC · DepMap)
 
 - **정체:** 1973년 64세 백인 환자의 복수에서 얻었다.
 - **핵심 생물학:** PIK3CA·ARID1A 변이, TP53 단백 없음, CDKN2A 결손, ERBB2(HER2) 증폭이 알려져 있다. cisplatin·doxorubicin에 내성이다.
-- **주의:** 오랫동안 serous로 알려졌지만 변이 양상은 endometrioid/clear cell에 가깝다. TP53 표기가 문헌마다 다르다.
+- **주의:** DepMap은 SOC(장액성, 등급 미표기)로 표기한다. 다만 변이 양상(PIK3CA H1047R, ARID1A 절단형)은 endometrioid/clear cell에 가깝다는 보고가 있다. TP53은 문헌마다 표기가 달랐는데, DepMap에서 S90Pfs\*33 frameshift(단백 없음)로 확인됐다.
 - **이 프로젝트:** ppt에서 2D/3D가 가장 깔끔하게 갈린 세포주다. PI3K/AKT 경로와 HER2 신호가 3D에서 달라지는지 본다.
 
 ### A2780 (Endometrioid)
@@ -291,19 +302,19 @@
 
 - **정체:** 일본에서 수립된 clear cell 세포주. CA602 항원 연구에 쓰였다.
 - **핵심 생물학:** MLH1 변이, 상피(epithelial) 성질이고 EMT 점수가 낮다는 보고가 있다.
-- **주의:** 공개 자료가 가장 적다. CCLE 등록 여부부터 확인한다.
+- **주의:** 공개 자료가 가장 적고 DepMap(CCLE)에 등록돼 있지 않다. 변이는 문헌이나 자체 시퀀싱으로 확인해야 한다.
 - **이 프로젝트:** 같은 clear cell인 OVTOKO(간엽)와 대비해 EMT 관련 3D 변화를 볼 수 있다.
 
 ## 6. 이 프로젝트에서 볼 점
 
-**지금 분석하는 4종은 모두 HGSOC가 아니다.** 따라서 현재 결론은 "non-HGSOC 난소암에서 3D의 의미"로 한정해 말해야 하고, HGSOC 2종 데이터가 오면 일반화할 수 있다.
+**DepMap 기준으로 지금 분석하는 4종 중 HGSOC는 HeyA8 하나이고, 그마저 TP53 wild-type이라 전형적인 HGSOC가 아니다.** 따라서 현재 결론은 "전형적 HGSOC가 아닌 난소암 세포주에서 3D의 의미"로 한정해 말하고, OVCAR-3·OVSAHO 데이터가 오면 일반화할 수 있다.
 
 1. **4종 공통 신호는 강한 근거다.** 출발 조직·변이가 다 다른데도 공통으로 변하는 pathway는 "아형과 무관한 3D 효과"로 말할 수 있다.
 2. **세포주 특이 신호는 driver와 연결해 본다.** HeyA8 → MAPK, SKOV-3·A2780 → PI3K/AKT, OVTOKO → ARID1A·hypoxia. 이 짝이 4단계(교차 분석)의 출발점이다.
 3. **백금 반응 기준선이 다르다.** A2780만 민감이고 나머지는 내성 쪽이다. heatmap의 "resistance" 카테고리는 세포주마다 출발점이 다르다는 걸 전제로 본다.
 4. **MMR 결핍 세포주(A2780, RMG-II)는 계대 중 변화가 클 수 있다.** A2780 샘플이 PCA에서 흩어진 이유의 후보 중 하나다 (가설).
 5. **EMT는 세포주 기본값이 다르다.** OVTOKO는 간엽, RMG-II는 상피 성질이라 EMT 점수는 같은 세포주 안에서 2D 대비 변화로만 비교한다.
-6. **CCLE로 확인할 목록:** OVCAR-3의 TP53·CCNE1, SKOV-3의 TP53 형태, 각 세포주의 백금 반응(GDSC/PRISM), RMG-I·RMG-II의 등록 여부와 변이.
+6. **CCLE로 확인할 목록:** OVCAR-3(DepMap 이름 NIHOVCAR3)의 아형 표기와 TP53·CCNE1, SKOV-3의 copy number(ERBB2·CDKN2A), 각 세포주의 백금 반응(GDSC/PRISM), RMG-I 변이 정리. RMG-II는 DepMap 미등록.
 
 ## 7. 출처
 
