@@ -5,7 +5,8 @@
 # 서버 본체 /data 가 도커 컨테이너 ksh3_con2 의 /data 와 같은 폴더라서,
 # /data/ksh3/ov 로 올리면 컨테이너 안에서도 같은 경로로 보인다.
 #
-# 처음 한 번:  brew install rsync tmux   (Mac 기본 rsync는 --iconv 없음)
+# 처음 한 번:  brew install rsync tmux   (확인: /opt/homebrew/bin/rsync --version → 3.x)
+# zsh에서 명령을 붙여 넣을 때 # 주석 줄은 빼고 붙여 넣는다 (command not found: # 오류)
 #
 # 백그라운드로 돌리려면:
 #   tmux new -s upload          → 이 스크립트 실행 → 비밀번호 입력 → Ctrl+b 누른 뒤 d
@@ -18,7 +19,10 @@
 SRC="/Volumes/SAMSUNG/2.난소암(세포주)"     # 끝에 / 없음 → 서버에 폴더째로 들어감
 DEST="ksh3@10.7.2.42:/data/ksh3/ov/"
 
-caffeinate -is rsync -rtvhP "$@" \
+# Mac 기본 /usr/bin/rsync 는 --iconv 를 몰라서, brew 로 설치한 rsync 를 전체 경로로 부른다
+RSYNC=/opt/homebrew/bin/rsync
+
+caffeinate -is "$RSYNC" -rtvhP "$@" \
   --iconv=utf-8-mac,utf-8 \
   --exclude='._*' --exclude='.DS_Store' \
   --log-file="$HOME/rsync_ov.log" \
