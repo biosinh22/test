@@ -562,6 +562,11 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 	</tr>
 	<tr>
 		<td>2026-09-30</td>
+		<td>배경 공부 탭에 한눈에 보기 그림 2개 추가 (난소 종양 분류, 세포주 8종 문헌 vs DepMap 아형), OVCAR-3 아형 HGSOC 확정, Docs↔Notion 동기화</td>
+		<td>발표 슬라이드에 그림 넣기, 나머지 세포주 mutation CSV로 8종 표 채우기</td>
+	</tr>
+	<tr>
+		<td>2026-09-30</td>
 		<td>세포주 아형을 DepMap(Oncotree Subtype) 기준으로 전면 수정: HeyA8 → HGSOC, SKOV-3 → SOC(등급 미표기), DepMap ID 추가, OVCAR-3 = NIHOVCAR3(ACH-000001), RMG-II 미등록</td>
 		<td>나머지 세포주 mutation CSV로 8종 표 채우기</td>
 	</tr>

@@ -9,7 +9,7 @@ Claude Docs 문서: https://claude.ai/code/artifact/fe866b38-7b85-4c83-b3e8-2fc0
 | 짝 | Claude Docs 탭 | Notion 페이지 | 기준본 | 다이어그램 (Docs 위젯 → Notion SVG) |
 | --- | --- | --- | --- | --- |
 | 메인 | tab `bbcfd581-1e84` (body `5228e874-88cf`) | `3e943186-2b56-81c6-ba76-eddeece5f9c9` (Research › Sa Lab › OV Organoid 3D vs 2D Project) | `last_synced.md` | widget `37cd2776-3a93` → `ov_project_flow.svg` |
-| 배경 공부 | tab `0e3c9de5-f8c4` (body `e9e6531e-90cb`) | `3e943186-2b56-810e-a791-e7c2e07aee1f` (메인 페이지의 하위 페이지) | `last_synced_background.md` | widget `3ca2ae68-6c75` → `ov_origin_subtypes.svg` |
+| 배경 공부 | tab `0e3c9de5-f8c4` (body `e9e6531e-90cb`) | `3e943186-2b56-810e-a791-e7c2e07aee1f` (메인 페이지의 하위 페이지) | `last_synced_background.md` | widget `3ca2ae68-6c75` → `ov_origin_subtypes.svg`, widget `84bf7350-4d6e` → `ov_tumor_types.svg`, widget `eb485d49-c114` → `ov_cell_lines.svg` (두 그림은 `scripts/make_overview_figures.py`로 위젯 코드와 SVG를 함께 생성) |
 
 ## 절차 (짝마다 반복)
 
@@ -38,6 +38,7 @@ Claude Docs 문서: https://claude.ai/code/artifact/fe866b38-7b85-4c83-b3e8-2fc0
 
 | 시각 | 방향 | 내용 |
 | --- | --- | --- |
+| 2026-09-30 14:xx | 양쪽 동시 수정 | 배경 공부 탭에 그림 2개(난소 종양 분류, 세포주 8종 문헌 vs DepMap 아형) 추가, Notion에는 SVG 이미지로 같은 위치에 삽입. 메인 작업 로그 한 줄 추가. 기준본 갱신 |
 | 2026-09-30 13:xx | 양방향 | Notion→Docs: "할 일" 제목을 "9/28-1002"로 바꾸고 굵은 안내 문단 삭제, Background Study 첫 문장, CCLE 사용법 A·B 제목, A-2의 "→ HEYA8: ACH-000542", 배경 공부 "공부 자료". Docs→Notion: 0단계 아형 항목 체크. 양쪽 동시: OVCAR-3 아형 HGSOC 확정. 충돌 없음. Notion 표의 OVCAR-3·RMG2 굵게는 서식 차이라 반영 안 함 |
 | 2026-09-30 13:xx | 양쪽 동시 수정 | 사용자 요청으로 세포주 아형을 DepMap 기준으로 수정(메인·배경 공부 탭 모두). Docs와 Notion에 같은 수정을 넣고 기준본 2개에도 같은 수정만 반영. 출발 조직 다이어그램 SVG 교체(이전 Notion 이미지는 사용자 삭제 필요). 그 전에 쌓인 미동기화 차이는 그대로 남아 있음 → 다음 동기화 때 처리 |
 | 2026-09-28 21:xx | 양방향 | Notion→Docs: 개요·1차 해석·빈 제목 정리·할 일 체크박스·"단계별 계획"·Background Study 수정. Docs→Notion: P0–P7 단계 표기를 "N단계"로 교체, 질문 체크·Organoid 답, 다이어그램 이미지 교체(이전 이미지는 사용자 삭제 필요) |
