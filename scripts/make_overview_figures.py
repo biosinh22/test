@@ -255,7 +255,7 @@ def pill(g, tid, x, y, words):
 
 
 def pipeline():
-    f = Fig(760, 836, "세포주 안에서 같은 passage끼리 비교해 3D에서 유지되는 pathway를 찾는다")
+    f = Fig(760, 728, "세포주 안에서 같은 passage끼리 비교해 3D에서 유지되는 pathway를 찾는다")
     f.items.append(T("title", 24, 32, f.title, size=15, weight=600, anchor="start"))
     f.items.append(T("subtitle", 24, 52, "RNA-seq 분석 파이프라인 · 32 샘플 (세포주 4종) · 도구는 R(DESeq2) 기준",
                      size=11.5, fill="quiet", anchor="start"))
@@ -299,7 +299,6 @@ def pipeline():
         g.append(T(f"{tid}-l1", x + 16, y3 + 48, l1, size=11.5, fill="quiet", anchor="start"))
         g.append(T(f"{tid}-l2", x + 16, y3 + 66, l2, size=11.5, fill="quiet", anchor="start"))
         g.append(T(f"{tid}-out", x + 16, y3 + 96, out, size=11.5, anchor="start"))
-        pill(g, qid, x + 178, y3 + 12, q)
 
     g = f.group("links")
     g.append(P("M260 196V220"))
@@ -314,7 +313,6 @@ def pipeline():
 
     step("step-gsea", "s6", 468, 68, "⑥ pathway (GSEA)", "세포주별 GSEA, log2FC 순위",
          "fgsea·clusterProfiler + msigdbr (Hallmark·KEGG·Reactome·GO BP)", "세포주 × pathway NES heatmap")
-    pill(f.items[-1][2], "q4-tag", 450, 480, "Q4")
     step("step-split", "s7", 560, 68, "⑦ 공통 / 특이 분리", "4종 공통 vs 세포주(아형) 특이",
          "NES 방향과 유의성 기준", "후보 pathway 목록")
 
@@ -328,14 +326,6 @@ def pipeline():
     g.append(T("ccle-sub", 628, 692, "driver → pathway 매핑", size=11.5, fill="quiet"))
     g.append(P("M520 678H496"))
 
-    g = f.group("questions")
-    g.append(T("q-head", 24, 736, "PI께 확인할 점", weight=600, anchor="start"))
-    qs = [("q1", "Q1  P0는 3D 짝이 없어 DEG에서 빼고 baseline(3D P1 vs 2D P0 보조 분석)으로만 써도 될지"),
-          ("q2", "Q2  P10은 2차(HeyA8·OVTOKO)에만 있어 통합 분석에서는 빼고 따로 볼지"),
-          ("q3", "Q3  생물학적 replicate 없이 passage를 반복처럼 써도 될지 (p-value가 낙관적일 수 있음)"),
-          ("q4", "Q4  GSEA DB와 DEG cutoff를 ppt 분석 조건에 맞출지")]
-    for i, (tid, words) in enumerate(qs):
-        g.append(T(tid, 24, 758 + i * 18, words, size=11.5, anchor="start"))
     return f
 
 

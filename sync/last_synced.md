@@ -244,7 +244,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 비교는 cell line 안에서, **같은 passage끼리**.<br>-\> 이렇게 하면 batch-cell line 겹침과 passage 차이를 함께 피할 수 있음. 도구는 R(DESeq2) 기준.
 
-\[embedded content: RNA-seq 분석 파이프라인 · 7단계, PI 확인 질문 4개\]
+\[embedded content: RNA-seq 분석 파이프라인 · 7단계\]
 
 <table header-row="true" header-column="false">
 	<tr>
@@ -564,7 +564,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 	</tr>
 	<tr>
 		<td>2026-09-30</td>
-		<td>Analysis Pipeline 모식도 추가 (7단계 흐름, 산출물, PI 확인 질문 Q1–Q4)</td>
+		<td>Analysis Pipeline 모식도 추가 (7단계 흐름, 산출물)</td>
 		<td>PI께 파이프라인 확인, 답에 따라 계획 수정</td>
 	</tr>
 	<tr>
