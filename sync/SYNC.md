@@ -8,7 +8,7 @@ Claude Docs 문서: https://claude.ai/code/artifact/fe866b38-7b85-4c83-b3e8-2fc0
 
 | 짝 | Claude Docs 탭 | Notion 페이지 | 기준본 | 다이어그램 (Docs 위젯 → Notion SVG) |
 | --- | --- | --- | --- | --- |
-| 메인 | tab `bbcfd581-1e84` (body `5228e874-88cf`) | `3e943186-2b56-81c6-ba76-eddeece5f9c9` (Research › Sa Lab › OV Organoid 3D vs 2D Project) | `last_synced.md` | widget `37cd2776-3a93` → `ov_project_flow.svg` |
+| 메인 | tab `bbcfd581-1e84` (body `5228e874-88cf`) | `3e943186-2b56-81c6-ba76-eddeece5f9c9` (Research › Sa Lab › OV Organoid 3D vs 2D Project) | `last_synced.md` | widget `37cd2776-3a93` → `ov_project_flow.svg`, widget `15f68c0a-8613` → `ov_pipeline.svg` |
 | 배경 공부 | tab `0e3c9de5-f8c4` (body `e9e6531e-90cb`) | `3e943186-2b56-810e-a791-e7c2e07aee1f` (메인 페이지의 하위 페이지) | `last_synced_background.md` | widget `3ca2ae68-6c75` → `ov_origin_subtypes.svg`, widget `84bf7350-4d6e` → `ov_tumor_types.svg`, widget `eb485d49-c114` → `ov_cell_lines.svg` (두 그림은 `scripts/make_overview_figures.py`로 위젯 코드와 SVG를 함께 생성) |
 
 ## 절차 (짝마다 반복)
@@ -38,6 +38,7 @@ Claude Docs 문서: https://claude.ai/code/artifact/fe866b38-7b85-4c83-b3e8-2fc0
 
 | 시각 | 방향 | 내용 |
 | --- | --- | --- |
+| 2026-09-30 15:xx | 양쪽 동시 수정 | Analysis Pipeline 모식도 추가(Docs 위젯, Notion SVG), 작업 로그 한 줄, 메인 기준본 갱신 |
 | 2026-09-30 14:xx | Docs → Notion | 세포주 8종 위젯의 사용자 수정(제목·부제·SKOV-3 설명·RMG-II 변이·범례 문구)을 SVG로 반영해 Notion 이미지 추가. 이전 이미지는 사용자 삭제 필요 |
 | 2026-09-30 14:xx | Docs → Notion | 난소 종양 분류 위젯(사용자 수정 + 댓글 요청: 가운데 맞춤, Mucinous에 MCAS·RMUG-S, 프로젝트 세포주 굵게)을 SVG로 다시 만들어 Notion 이미지 추가. 이전 이미지(같은 캡션, 두 번째 것)는 캡션 변경이 안 돼 사용자 삭제 필요 |
 | 2026-09-30 14:xx | 양쪽 동시 수정 | 배경 공부 탭에 그림 2개(난소 종양 분류, 세포주 8종 문헌 vs DepMap 아형) 추가, Notion에는 SVG 이미지로 같은 위치에 삽입. 메인 작업 로그 한 줄 추가. 기준본 갱신 |

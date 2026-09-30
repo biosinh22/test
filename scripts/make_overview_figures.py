@@ -248,11 +248,107 @@ def cell_lines():
     return f
 
 
+def pill(g, tid, x, y, words):
+    """PI 확인 질문 표시 (Q1 등)."""
+    g.append(R(x, y, 30, 18, stroke="warn", fill="warn", op=0.16, sw=1.25, rx=9))
+    g.append(T(tid, x + 15, y + 13, words, size=11, weight=600))
+
+
+def pipeline():
+    f = Fig(760, 836, "세포주 안에서 같은 passage끼리 비교해 3D에서 유지되는 pathway를 찾는다")
+    f.items.append(T("title", 24, 32, f.title, size=15, weight=600, anchor="start"))
+    f.items.append(T("subtitle", 24, 52, "RNA-seq 분석 파이프라인 · 32 샘플 (세포주 4종) · 도구는 R(DESeq2) 기준",
+                     size=11.5, fill="quiet", anchor="start"))
+
+    g = f.group("principle")
+    g.append(R(24, 68, 712, 34, stroke="accent", fill="accent", op=0.10, sw=1.5))
+    g.append(T("principle", 40, 90, "원칙: 비교는 세포주 안에서, 같은 passage끼리 → 배치(1차/2차)·세포주 겹침과 passage 차이를 함께 피함",
+               size=12, anchor="start"))
+
+    f.items.append(T("h-output", 628, 120, "산출물", size=11.5, weight=600, fill="quiet"))
+
+    def step(anchor, tid, y, h, name, l1, l2, out):
+        g = f.group(anchor)
+        g.append(R(24, y, 472, h))
+        g.append(T(f"{tid}-name", 40, y + 24, name, weight=600, anchor="start"))
+        g.append(T(f"{tid}-l1", 40, y + 42, l1, size=11.5, fill="quiet", anchor="start"))
+        if l2:
+            g.append(T(f"{tid}-l2", 40, y + 58, l2, size=11.5, fill="quiet", anchor="start"))
+        g.append(P(f"M496 {y + h // 2}H520", dash=True, arrow=False))
+        g.append(R(520, y + h // 2 - 20, 216, 40, fill="tint"))
+        g.append(T(f"{tid}-out", 628, y + h // 2 + 4, out, size=11.5))
+        return g
+
+    step("step-input", "s1", 128, 68, "① 입력 정리", "count matrix + 메타데이터 (sample · cell_line · batch · dimension · passage)",
+         "sample ID 매칭 · 저발현 유전자 제거", "counts.csv · samples.csv")
+    step("step-qc", "s2", 220, 68, "② QC", "라이브러리 크기 · 샘플 간 상관 · PCA (전체·세포주별)",
+         "vst 변환 → PCA (색 = 2D/3D, 모양 = passage)", "PCA 그림 · 이상 샘플 목록")
+
+    # 병렬 3갈래
+    xs = [24, 268, 512]
+    rows = [
+        ("step-deg-line", "s3", "③ 세포주별 DEG", "2D vs 3D · P0 제외", "~ passage + dimension", "→ 세포주별 DEG 표 (log2FC, padj)", "Q1", "q1-tag"),
+        ("step-deg-all", "s4", "④ 통합 DEG", "4종 공통 · P1·P3·P5만", "~ cell_line + dimension", "→ 공통 DEG · ppt 157/39와 비교", "Q2", "q2-tag"),
+        ("step-trend", "s5", "⑤ passage 경향", "passage별 3D − 2D log2FC 추세", "보조: LRT ~ passage × dimension", "→ 유지형 / 증가형 / 일시형", "Q3", "q3-tag"),
+    ]
+    y3, h3 = 320, 116
+    for (anchor, tid, name, l1, l2, out, q, qid), x in zip(rows, xs):
+        g = f.group(anchor)
+        g.append(R(x, y3, 224, h3))
+        g.append(T(f"{tid}-name", x + 16, y3 + 26, name, weight=600, anchor="start"))
+        g.append(T(f"{tid}-l1", x + 16, y3 + 48, l1, size=11.5, fill="quiet", anchor="start"))
+        g.append(T(f"{tid}-l2", x + 16, y3 + 66, l2, size=11.5, fill="quiet", anchor="start"))
+        g.append(T(f"{tid}-out", x + 16, y3 + 96, out, size=11.5, anchor="start"))
+        pill(g, qid, x + 178, y3 + 12, q)
+
+    g = f.group("links")
+    g.append(P("M260 196V220"))
+    g.append(P("M260 288V304H136V320"))
+    g.append(P("M260 304H380V320"))
+    g.append(P("M260 304H624V320"))
+    g.append(P("M136 436V452H380", arrow=False))
+    g.append(P("M624 436V452H380", arrow=False))
+    g.append(P("M380 436V468"))
+    g.append(P("M260 536V560"))
+    g.append(P("M260 628V652"))
+
+    step("step-gsea", "s6", 468, 68, "⑥ pathway (GSEA)", "세포주별 GSEA, log2FC 순위",
+         "fgsea·clusterProfiler + msigdbr (Hallmark·KEGG·Reactome·GO BP)", "세포주 × pathway NES heatmap")
+    pill(f.items[-1][2], "q4-tag", 450, 480, "Q4")
+    step("step-split", "s7", 560, 68, "⑦ 공통 / 특이 분리", "4종 공통 vs 세포주(아형) 특이",
+         "NES 방향과 유의성 기준", "후보 pathway 목록")
+
+    g = f.group("cross")
+    g.append(R(24, 652, 472, 52, stroke="accent", fill="accent", op=0.12, sw=2))
+    g.append(T("cross-name", 260, 674, "4단계 교차 분석으로", weight=600))
+    g.append(T("cross-sub", 260, 692, "3D에서 변한 pathway × 세포주별 CCLE mutation", size=11.5, fill="quiet"))
+    g = f.group("ccle")
+    g.append(R(520, 652, 216, 52, dash=True))
+    g.append(T("ccle-name", 628, 674, "1단계 CCLE mutation", weight=600))
+    g.append(T("ccle-sub", 628, 692, "driver → pathway 매핑", size=11.5, fill="quiet"))
+    g.append(P("M520 678H496"))
+
+    g = f.group("questions")
+    g.append(T("q-head", 24, 736, "PI께 확인할 점", weight=600, anchor="start"))
+    qs = [("q1", "Q1  P0는 3D 짝이 없어 DEG에서 빼고 baseline(3D P1 vs 2D P0 보조 분석)으로만 써도 될지"),
+          ("q2", "Q2  P10은 2차(HeyA8·OVTOKO)에만 있어 통합 분석에서는 빼고 따로 볼지"),
+          ("q3", "Q3  생물학적 replicate 없이 passage를 반복처럼 써도 될지 (p-value가 낙관적일 수 있음)"),
+          ("q4", "Q4  GSEA DB와 DEG cutoff를 ppt 분석 조건에 맞출지")]
+    for i, (tid, words) in enumerate(qs):
+        g.append(T(tid, 24, 758 + i * 18, words, size=11.5, anchor="start"))
+    return f
+
+
 if __name__ == "__main__":
     root = Path(__file__).resolve().parent.parent
     scratch = Path(sys.argv[1]) if len(sys.argv) > 1 else root / "results"
     scratch.mkdir(parents=True, exist_ok=True)
-    for name, fig in [("ov_tumor_types", tumor_types()), ("ov_cell_lines", cell_lines())]:
+    figs = {"ov_tumor_types": tumor_types, "ov_cell_lines": cell_lines, "ov_pipeline": pipeline}
+    only = sys.argv[2:] or list(figs)  # 문서에서 손으로 고친 그림은 다시 만들지 않도록 이름을 골라 실행
+    for name, make in figs.items():
+        if name not in only:
+            continue
+        fig = make()
         (root / "sync" / f"{name}.svg").write_text(fig.svg(), encoding="utf-8")
         (scratch / f"{name}.jsx.json").write_text(json.dumps(fig.jsx(), ensure_ascii=False), encoding="utf-8")
         print(name, len(fig.jsx()))
