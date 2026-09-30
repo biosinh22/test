@@ -2,7 +2,7 @@
 
 <mention-date start="2026-09-28"/> · @shinhee
 
-난소암의 기본과 프로젝트에서 다루는 세포주 8종의 배경을 정리한 공부 자.<br>변이 정보는 문헌 기반이라 CCLE(DepMap)에서 최종 확인한다.
+난소암의 기본과 프로젝트에서 다루는 세포주 8종의 배경을 정리한 공부 자료.<br>변이 정보는 문헌 기반이라 CCLE(DepMap)에서 최종 확인한다.
 
 아형은 [DepMap](https://depmap.org/portal/) 세포주 페이지의 Oncotree Subtype 표기를 따른다 (2026-09-30 확인). 문헌 분류와 다른 세포주(HeyA8, SKOV-3)는 4·5절에 적었다.
 
@@ -171,7 +171,7 @@
 	</tr>
 	<tr>
 		<td>OVCAR-3</td>
-		<td>HGSOC (표기 확인 필요)</td>
+		<td>HGSOC</td>
 		<td>ACH-000001 (NIHOVCAR3)</td>
 		<td>1982, 복수. 항암치료(cyclophosphamide·doxorubicin·cisplatin) 후 진행한 환자</td>
 		<td>TP53, CCNE1 증폭 (확인 필요)</td>
@@ -314,7 +314,7 @@
 3. **백금 반응 기준선이 다르다.** A2780만 민감이고 나머지는 내성 쪽이다. heatmap의 "resistance" 카테고리는 세포주마다 출발점이 다르다는 걸 전제로 본다.
 4. **MMR 결핍 세포주(A2780, RMG-II)는 계대 중 변화가 클 수 있다.** A2780 샘플이 PCA에서 흩어진 이유의 후보 중 하나다 (가설).
 5. **EMT는 세포주 기본값이 다르다.** OVTOKO는 간엽, RMG-II는 상피 성질이라 EMT 점수는 같은 세포주 안에서 2D 대비 변화로만 비교한다.
-6. **CCLE로 확인할 목록:** OVCAR-3(DepMap 이름 NIHOVCAR3)의 아형 표기와 TP53·CCNE1, SKOV-3의 copy number(ERBB2·CDKN2A), 각 세포주의 백금 반응(GDSC/PRISM), RMG-I 변이 정리. RMG-II는 DepMap 미등록.
+6. **CCLE로 확인할 목록:** OVCAR-3(DepMap 이름 NIHOVCAR3)의 TP53·CCNE1, SKOV-3의 copy number(ERBB2·CDKN2A), 각 세포주의 백금 반응(GDSC/PRISM), RMG-I 변이 정리. RMG-II는 DepMap 미등록.
 
 ## 7. 출처
 

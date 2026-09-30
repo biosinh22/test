@@ -180,9 +180,7 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 - CCLE \> mutation data. cell line 별로 어떤 key mutation이 있는지, gene이랑 pathway로 이어지는지 확인.
 - 먼저 histology, cell line 별로 공부하고 CCLE에서 mutation 찾아서 공부하기
 
-## 할 일
-
-**이번 주 할 일 (샘플 데이터 없이 할 수 있는 것 위주)**
+## 9/28-1002
 
 - [ ] 세포주 8종 프로필 공부 (아형, driver mutation, 배양 특성)
 - [ ] cBioPortal/DepMap으로 8종 mutation 표 → mutation-pathway 매핑 표 (1단계)
@@ -199,7 +197,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 **0. 배경 공부**
 
-- [ ] 난소암 아형(프로젝트 세포주의 아형, DepMap 기준) 개념과 대표 mutation 정리
+- [x] 난소암 아형(프로젝트 세포주의 아형, DepMap 기준) 개념과 대표 mutation 정리
 - [ ] 세포주 8종 프로필 카드 (배경 공부 탭)
 - [ ] 2D vs 3D(오가노이드/스페로이드) 배양 차이 리뷰 논문 1–2편
 
@@ -304,7 +302,7 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 ## Background Study
 
-핵심은 "4개 세포주가 사실 서로 다른 난소암 subtype이다"를 먼저 이해하는 것.<br>-\> subtype이 다르면 driver mutation과 pathway가 다르고, 3D에서 변하는 pathway도 달라짐.<br>그래서 세포주별 분석(3단계)과 mutation 연결(4단계)의 해석 기준이 여기서 정해진다.
+4개 세포주가 서로 다른 난소암 subtype이다<br>-\> subtype이 다르면 driver mutation과 pathway가 다르고, 3D에서 변하는 pathway도 달라짐.<br>그래서 세포주별 분석(3단계)과 mutation 연결(4단계)의 해석 기준이 여기서 정해진다.
 
 난소암 개요와 세포주 8종 상세 프로필은 별도 탭: 배경 공부: 난소암·세포주
 
@@ -381,7 +379,7 @@ SKOV-3는 DepMap에서 SOC(Serous Ovarian Cancer)로 등록돼 있다. 장액성
 		<td>메모</td>
 	</tr>
 	<tr>
-		<td>HGSOC (DepMap 표기 확인 필요)</td>
+		<td>HGSOC</td>
 		<td>OVCAR-3</td>
 		<td>ACH-000001 (NIHOVCAR3)</td>
 		<td>–</td>
@@ -458,15 +456,15 @@ DepMap 아형으로 나누면 HGSOC = TP53/HR(OVCAR-3, OVSAHO), Endometrioid = P
 
 방법은 3가지. 처음엔 A로 감을 잡고, B로 8개를 한눈에 보고, 최종 표는 C로 만드는 걸 추천한다.
 
-**A. DepMap portal 웹 (코딩 없음, 세포주 하나씩)**
+**A. DepMap portal 웹 (세포주 하나씩)**_기록할 것: ModelID(`ACH-…`), DepMap이 붙인 subtype
 
 1. [depmap.org/portal](https://depmap.org/portal/) 상단 검색창에 세포주 이름 입력 (예: SKOV3). 하이픈 없이 입력하면 잘 걸린다. OVCAR-3는 NIHOVCAR3로 등록돼 있다.
-2. 세포주 페이지에서 아형부터 확인. Oncotree Lineage(장기) \> Primary Disease(큰 질환군) \> Subtype(조직학적 아형) 순으로 좁아지고, 아형은 Oncotree Subtype 칸이다.
+2. 세포주 페이지에서 아형부터 확인. Oncotree Lineage(장기) \> Primary Disease(큰 질환군) \> Subtype(조직학적 아형) 순으로 좁아지고, 아형은 Oncotree Subtype 칸이다.<br>→ HEYA8: ACH-000542
 3. Characterization(특성) 영역의 **Mutations** 표에서 유전자, 단백질 변화(예: p.H1047R), 변이 종류, hotspot 여부를 본다. Copy number와 Expression도 같은 곳에 있다.
 4. 반대로 유전자 이름(예: ARID1A)을 검색하면, 그 유전자에 변이가 있는 세포주 목록과 의존성 점수를 볼 수 있다.
 5. 탭 이름은 portal 업데이트에 따라 조금 다를 수 있다.
 
-**B. cBioPortal (코딩 없음, 8개를 한 그림으로)**
+**B. cBioPortal (8 cell line merge)**
 
 1. [cBioPortal](https://www.cbioportal.org/) 에서 "Cancer Cell Line Encyclopedia (Broad, 2019)" study 선택.
 2. Query By Gene → 샘플 선택에서 사용자 지정 목록으로 8개 세포주 입력 (CCLE 이름 형식: `NIHOVCAR3_OVARY`, `SKOV3_OVARY` 등).
@@ -565,7 +563,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 	<tr>
 		<td>2026-09-30</td>
 		<td>세포주 아형을 DepMap(Oncotree Subtype) 기준으로 전면 수정: HeyA8 → HGSOC, SKOV-3 → SOC(등급 미표기), DepMap ID 추가, OVCAR-3 = NIHOVCAR3(ACH-000001), RMG-II 미등록</td>
-		<td>OVCAR-3 DepMap 아형 확인, 나머지 세포주 mutation CSV로 8종 표 채우기</td>
+		<td>나머지 세포주 mutation CSV로 8종 표 채우기</td>
 	</tr>
 	<tr>
 		<td>2026-09-28</td>
