@@ -563,6 +563,11 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 		<td>다음</td>
 	</tr>
 	<tr>
+		<td>2026-10-01</td>
+		<td>원자료 서버 업로드 준비(rsync 시험 실행 성공, 339 GB → /data/ksh3/ov), 인계 문서 HANDOFF.md 작성</td>
+		<td>원자료 실제 전송, 폴더 내용 확인 후 Data 정리 시작</td>
+	</tr>
+	<tr>
 		<td>2026-09-30</td>
 		<td>Analysis Pipeline 모식도 추가 (7단계 흐름, 산출물)</td>
 		<td>PI께 파이프라인 확인, 답에 따라 계획 수정</td>
