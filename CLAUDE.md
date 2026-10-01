@@ -2,6 +2,8 @@
 
 난소암 세포주 8종(아형은 DepMap Oncotree Subtype 기준: HGSOC OVCAR-3(DepMap 이름 NIHOVCAR3)·OVSAHO·HeyA8 / SOC(장액성, 등급 미표기) SKOV-3 / Endometrioid A2780 / Clear cell OVTOKO·RMG1·RMG2(RMG2는 DepMap 미등록). 문헌 분류와 다른 HeyA8(LGSOC 특징)·SKOV-3(endometrioid/clear cell 특징)은 문서에 따로 적어 둠)의 2D vs 3D(오가노이드) RNA-seq 비교 분석. 1차 ppt는 SKOV3, A2780, HeyA8, OVTOKO 4종만 포함. 목표: 3D의 생물학적·임상적 타당성 근거 + 세포주별 CCLE mutation과 연결된 치료 타겟(gene/pathway) 발굴.
 
+다른 계정·새 대화에서 이어받을 때는 `HANDOFF.md`(요약, 현재 상태, 시작 프롬프트)를 먼저 읽는다.
+
 ## 프로젝트 문서 (진행 상황의 기준)
 
 https://claude.ai/code/artifact/fe866b38-7b85-4c83-b3e8-2fc0f85712e4
