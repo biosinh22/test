@@ -2,7 +2,7 @@
 
 ## 현재 사용 중 (2026-10-02~)
 
-- 루틴 ID `trig_01Rq8d6FGFBWZZuyBxFQJGPX` "OV Docs↔Notion 동기화 (이 대화창)" — 매일 09:52 KST
+- 루틴 ID `trig_01Rq8d6FGFBWZZuyBxFQJGPX` "OV Docs↔Notion 동기화 (이 대화창, 매주 금)" — 매주 금요일 09:52 KST (2026-10-02 매일 → 매주 금요일로 변경)
 - 새 세션을 만들지 않고 Claude Code 대화창 `session_01A7ib3VZK7j2jp9Pem35jhT`로 동기화 요청을 보낸다. Claude Docs 도구는 사용자 커넥터 목록에 없는, Claude Code 대화창에만 붙는 도구라서 새 세션 방식의 루틴에는 붙지 않았다(9/30, 10/2 실패).
 - 에이전트가 만든 루틴이라 대화창의 Claude가 수정·중지할 수 있다.
 - 이 대화창이 보관(archive)되면 루틴도 멈춘다. 그때는 새 Claude Code 대화창에서 같은 방식으로 다시 만든다.
