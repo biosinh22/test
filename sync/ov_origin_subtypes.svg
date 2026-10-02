@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 426" width="760" height="426" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="13">
+<rect width="760" height="426" fill="#ffffff"/>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#a8a89e"/></marker></defs>
+<text x="24" y="32" font-size="15" font-weight="600" fill="#1f1f1f">아형마다 출발 조직이 달라 대표 변이와 pathway도 다르다</text>
+<text x="114" y="64" text-anchor="middle" font-size="11.5" fill="#6b6b6b">출발 조직</text>
+<text x="370" y="64" text-anchor="middle" font-size="11.5" fill="#6b6b6b">아형 · 대표 변이</text>
+<text x="636" y="64" text-anchor="middle" font-size="11.5" fill="#6b6b6b">이 프로젝트 세포주</text>
+<g fill="none" stroke="#a8a89e" stroke-width="1.25"><path d="M204 110H260" marker-end="url(#a)"/><path d="M204 190H260" marker-end="url(#a)"/><path d="M204 310H232V270H260" marker-end="url(#a)"/><path d="M204 310H232V350H260" marker-end="url(#a)"/><path d="M480 110H536" marker-end="url(#a)"/><path d="M480 190H536" stroke-dasharray="4 4" marker-end="url(#a)"/><path d="M480 126H508V178H536" stroke-dasharray="4 4" marker-end="url(#a)"/><path d="M480 270H536" marker-end="url(#a)"/><path d="M480 350H536" marker-end="url(#a)"/></g>
+<rect x="24" y="82" width="180" height="56" rx="8" fill="#f1f0ea" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="114" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">난관 상피</text>
+<text x="114" y="124" text-anchor="middle" font-size="11.5" fill="#6b6b6b">STIC 전구병변</text>
+<rect x="24" y="162" width="180" height="56" rx="8" fill="#f1f0ea" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="114" y="186" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">경계성 종양</text>
+<text x="114" y="204" text-anchor="middle" font-size="11.5" fill="#6b6b6b">serous borderline tumor</text>
+<rect x="24" y="282" width="180" height="56" rx="8" fill="#f1f0ea" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="114" y="306" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">자궁내막증</text>
+<text x="114" y="324" text-anchor="middle" font-size="11.5" fill="#6b6b6b">endometriosis</text>
+<rect x="260" y="82" width="220" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="370" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">HGSOC</text>
+<text x="370" y="124" text-anchor="middle" font-size="11.5" fill="#6b6b6b">TP53 · BRCA1/2 · Type II</text>
+<rect x="260" y="162" width="220" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="370" y="186" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">LGSOC</text>
+<text x="370" y="204" text-anchor="middle" font-size="11.5" fill="#6b6b6b">KRAS · BRAF · Type I</text>
+<rect x="260" y="242" width="220" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="370" y="266" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">Endometrioid</text>
+<text x="370" y="284" text-anchor="middle" font-size="11.5" fill="#6b6b6b">PIK3CA · ARID1A · PTEN · Type I</text>
+<rect x="260" y="322" width="220" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="370" y="346" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">Clear cell</text>
+<text x="370" y="364" text-anchor="middle" font-size="11.5" fill="#6b6b6b">ARID1A · PIK3CA · Type I</text>
+<rect x="536" y="82" width="200" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="636" y="106" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">OVCAR-3·OVSAHO·HeyA8</text>
+<text x="636" y="124" text-anchor="middle" font-size="11.5" fill="#6b6b6b">HeyA8만 ppt 분석 포함</text>
+<rect x="536" y="162" width="200" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25" stroke-dasharray="4 4"/>
+<text x="636" y="186" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">SKOV-3 (SOC)</text>
+<text x="636" y="204" text-anchor="middle" font-size="11.5" fill="#6b6b6b">장액성 · 등급 미표기 · ppt 포함</text>
+<rect x="536" y="242" width="200" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="636" y="266" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">A2780</text>
+<text x="636" y="284" text-anchor="middle" font-size="11.5" fill="#6b6b6b">ppt 분석 포함</text>
+<rect x="536" y="322" width="200" height="56" rx="8" fill="none" stroke="#a8a89e" stroke-width="1.25"/>
+<text x="636" y="346" text-anchor="middle" font-size="13" font-weight="600" fill="#1f1f1f">OVTOKO · RMG-I · RMG-II</text>
+<text x="636" y="364" text-anchor="middle" font-size="11.5" fill="#6b6b6b">OVTOKO만 ppt 분석 포함</text>
+<text x="24" y="410" font-size="11.5" fill="#6b6b6b">점선: DepMap이 등급 없이 SOC(장액성)로 표기해 HGSOC·LGSOC 중 어디인지 정해지지 않음 · 아형은 DepMap 기준</text>
+</svg>

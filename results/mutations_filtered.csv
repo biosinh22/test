@@ -1,0 +1,20 @@
+cell_line,Gene,Protein Change,Variant Info,Allele Fraction,Likely LOF,Hotspot,Oncogene High Impact,Tumor Suppressor High Impact,Hess Driver,AM class,in_driver_list
+SKOV3,ARID1A,p.Q586Ter,stop_gained,0.4830000102519989,True,False,False,True,False,,True
+SKOV3,NOTCH2,p.R1604DfsTer9,frameshift_variant,0.5669999718666077,True,False,True,True,False,,False
+SKOV3,EMSY,p.K1101NfsTer12,frameshift_variant,0.3149999976158142,True,False,True,False,False,,False
+SKOV3,ATM,,splice_acceptor_variant,0.4699999988079071,True,False,False,True,False,,True
+SKOV3,ERC1,p.Y747Ter,stop_gained,0.949999988079071,True,False,True,False,False,,False
+SKOV3,EP400,,splice_donor_variant,0.2029999941587448,True,False,False,True,False,,False
+SKOV3,TP53,p.S90PfsTer33,frameshift_variant,0.9649999737739564,True,False,False,True,False,,True
+SKOV3,NF1,p.G1702C,missense_variant,0.4169999957084656,False,False,False,False,False,ambiguous,True
+SKOV3,POLD1,,splice_acceptor_variant,0.2829999923706054,True,False,False,True,False,,False
+SKOV3,EP300,p.Y1414C,missense_variant,0.5120000243186951,True,True,False,False,False,likely_pathogenic,False
+SKOV3,MLH1,p.Y126SfsTer11,frameshift_variant,0.9340000152587892,True,False,False,True,False,,True
+SKOV3,PIK3CA,p.H1047R,missense_variant,0.6330000162124634,False,True,False,False,True,ambiguous,True
+SKOV3,FBXW7,p.R505L,missense_variant,0.5249999761581421,True,True,False,False,True,likely_pathogenic,True
+SKOV3,APC,p.T1556LfsTer9,frameshift_variant,0.1930000036954879,True,False,False,True,False,,False
+RMG-I,FANCL,p.W57Ter,stop_gained,0.5329999923706055,True,False,False,True,False,,False
+RMG-I,MLH1,p.R10L,missense_variant,0.5360000133514404,False,False,False,False,False,likely_pathogenic,True
+RMG-I,FAT1,p.E3880Ter,stop_gained&splice_region_variant,0.3899999856948852,True,False,False,True,False,,False
+RMG-I,TERT,,upstream_gene_variant,0.6110000014305115,False,True,False,False,False,,False
+RMG-I,KMT2C,p.A221D,missense_variant,0.449999988079071,False,False,False,False,False,likely_benign,True
