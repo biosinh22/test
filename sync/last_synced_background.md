@@ -165,89 +165,80 @@
 
 \[embedded content: 세포주 8종 · 문헌 아형 vs DepMap 아형\]
 
-아래 표는 유래·백금 반응까지 담은 상세 비교다.
+아래 표는 유래·백금 반응을 담은 상세 비교다.
 
 <table header-row="true" header-column="false">
 	<tr>
 		<td>세포주</td>
 		<td>아형 (DepMap)</td>
 		<td>DepMap ID</td>
-		<td>유래</td>
 		<td>주요 변이</td>
+		<td>유래</td>
 		<td>백금 반응</td>
-		<td>ppt</td>
 	</tr>
 	<tr>
 		<td>OVCAR-3</td>
 		<td>HGSOC</td>
-		<td>ACH-000001 (NIHOVCAR3)</td>
-		<td>1982, 복수. 항암치료(cyclophosphamide·doxorubicin·cisplatin) 후 진행한 환자</td>
+		<td>ACH-000001 **(NIHOVCAR3)**</td>
 		<td>TP53, CCNE1 증폭 (확인 필요)</td>
+		<td>1982, 복수. 항암치료(cyclophosphamide·doxorubicin·cisplatin) 후 진행한 환자</td>
 		<td>내성</td>
-		<td>–</td>
 	</tr>
 	<tr>
 		<td>OVSAHO</td>
 		<td>HGSOC</td>
 		<td>ACH-000409</td>
-		<td>56세 일본인, 복막 전이 (FIGO III)</td>
 		<td>TP53, RB1 이상</td>
+		<td>56세 일본인, 복막 전이 (FIGO III)</td>
 		<td>확인 필요</td>
-		<td>–</td>
 	</tr>
 	<tr>
 		<td>HeyA8</td>
 		<td>HGSOC (문헌상 LGSOC 특징)</td>
 		<td>ACH-000542</td>
-		<td>HEY 세포를 누드 마우스 복강에서 키운 파생주</td>
 		<td>KRAS G12D, BRAF G464E(HEY), TP53 wild-type</td>
+		<td>HEY 세포를 누드 마우스 복강에서 키운 파생주</td>
 		<td>확인 필요</td>
-		<td>○</td>
 	</tr>
 	<tr>
 		<td>SKOV-3</td>
 		<td>SOC (장액성, 등급 미표기)</td>
 		<td>ACH-000811</td>
-		<td>1973, 64세 백인, 복수</td>
 		<td>PIK3CA H1047R, ARID1A Q586\*, TP53 S90Pfs\*33 (DepMap 확인), ERBB2 증폭 (CN 확인 필요)</td>
+		<td>1973, 64세 백인, 복수</td>
 		<td>내성</td>
-		<td>○</td>
 	</tr>
 	<tr>
 		<td>A2780</td>
 		<td>Endometrioid</td>
 		<td>ACH-000657</td>
-		<td>치료 전 환자 종양</td>
 		<td>ARID1A, PIK3CA, PTEN, MMR 결핍, TP53 wild-type</td>
+		<td>치료 전 환자 종양</td>
 		<td>**민감** (내성 파생주 A2780cis 있음)</td>
-		<td>○</td>
 	</tr>
 	<tr>
 		<td>OVTOKO</td>
 		<td>Clear cell</td>
 		<td>ACH-000663</td>
-		<td>항암치료(CAP 5–6회) 후 전이 병변</td>
 		<td>ARID1A</td>
+		<td>항암치료(CAP 5–6회) 후 전이 병변</td>
 		<td>확인 필요 (치료 후 유래)</td>
-		<td>○</td>
 	</tr>
 	<tr>
 		<td>RMG-I</td>
 		<td>Clear cell</td>
 		<td>ACH-000719</td>
-		<td>일본, Nozawa 등 수립</td>
 		<td>ARID1A wild-type, TERT promoter, FANCL W57\* (DepMap 확인)</td>
+		<td>일본, Nozawa 등 수립</td>
 		<td>확인 필요</td>
-		<td>–</td>
 	</tr>
 	<tr>
 		<td>RMG-II</td>
 		<td>Clear cell (문헌 기준)</td>
 		<td>DepMap 미등록</td>
-		<td>일본</td>
 		<td>MLH1 변이</td>
+		<td>일본</td>
 		<td>확인 필요</td>
-		<td>–</td>
 	</tr>
 </table>
 
