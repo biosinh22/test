@@ -186,7 +186,7 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 - [ ] cBioPortal/DepMap으로 8종 mutation 표 → mutation-pathway 매핑 표 (1단계)
 - [ ] 2D vs 3D(오가노이드) 리뷰 논문 정리: 3D에서 흔히 보고되는 변화(hypoxia, ECM, stemness, 약물내성)
 - [ ] heatmap 6개 카테고리에 쓸 gene set 후보 정리 (MSigDB Hallmark 등). 원본을 받기 전에 우리 기준을 준비
-- [ ] 파이프라인 코드를 가상 데이터로 미리 작성·검증 (count matrix 오면 바로 실행)
+- [ ] 파이프라인 코드를 미리 작성·검증 (count matrix 오면 바로 실행)
 - [ ] 환자 종양 비교용 공개 데이터셋 조사 (HGSOC, clear cell, endometrioid 포함)
 
 ## 단계별 계획
@@ -198,12 +198,12 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 **0. 배경 공부**
 
 - [x] 난소암 아형(프로젝트 세포주의 아형, DepMap 기준) 개념과 대표 mutation 정리
-- [ ] 세포주 8종 프로필 카드 (배경 공부 탭)
+- [x] 세포주 8종 프로필 카드 (배경 공부 탭)
 - [ ] 2D vs 3D(오가노이드/스페로이드) 배양 차이 리뷰 논문 1–2편
 
 **1. CCLE mutation**
 
-- [ ] DepMap portal에서 8개 세포주 mutation 다운로드 (등록 확인 완료: RMG2만 미등록, OVCAR3는 NIHOVCAR3)
+- [x] DepMap portal에서 8개 세포주 mutation 다운로드 (RMG2만 미등록, OVCAR3는 NIHOVCAR3)
 - [ ] driver 유전자 기준으로 필터 (hotspot missense, truncating)
 - [ ] copy number(예: ERBB2 증폭)와 발현량도 함께 확인
 - [ ] mutation → pathway 매핑 표
@@ -540,7 +540,7 @@ sub[cols].sort_values(cols[:2]).to_csv("ov8_driver_mutations.csv", index=False)
 
 - [x] 나머지 4종(OVCAR-3, OVSAHO, RMG1, RMG2)의 2D/3D RNA 데이터는 있는가, 언제 나오는가? → 답: 아직 없고 시점 미정. 공부만 먼저, 분석은 4종으로.
 - [ ] DEG(157/39)와 pathway 결과는 4개 세포주 통합인가, 개별인가?
-- [ ] 세포주마다 2D/3D replicate는 몇 개이고, 같은 세포주 내 paired 비교인가? → 답: 생물학적 replicate 없음, passage별 1개씩 (위 "샘플 구성").
+- [x] 세포주마다 2D/3D replicate는 몇 개이고, 같은 세포주 내 paired 비교인가? → 답: 생물학적 replicate 없음, passage별 1개씩 (위 "샘플 구성").
 - [ ] 3D P1은 2D P0에서 바로 만든 것인가? 같은 passage의 2D·3D는 같은 시점에 수확했나? (passage끼리 짝지어 비교하는 전제)
 - [ ] 1차와 2차의 라이브러리·시퀀싱 조건(키트, 기기, read 길이)이 같은가?
 - [ ] SKOV3·A2780도 P10 샘플이 추가될 예정인가?
