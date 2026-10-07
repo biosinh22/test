@@ -106,6 +106,7 @@
 - SKOV3·RMG-I 변이 필터
 - 그림 3개(난소 종양 분류, 세포주 8종 비교, 파이프라인 모식도)
 - 원자료 업로드 스크립트
+- `data/samples.csv`(32개, 서버 `/data/ksh3/ov/samples.csv`와 같음), 바로가기 미리보기 명령 `scripts/link_preview.sh`(서버에서 사용자가 돌림, 원본은 `ov_cellline/`, 링크는 `work/bam`·`work/fastq`)
 
 **다음**
 1. **원자료 업로드:** 외장하드 `/Volumes/SAMSUNG/2.난소암(세포주)` (339 GB) → 서버 `/data/ksh3/ov/`. 시험 실행(dry run)까지 성공했다. 실제 전송은 Mac 터미널에서 tmux 안에 아래 명령을 실행하면 된다.
