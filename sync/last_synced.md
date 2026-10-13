@@ -38,7 +38,7 @@
 	<tr>
 		<td>5</td>
 		<td>Functional pathway (-log10 P)</td>
-		<td>glycolytic process 4.87, cell surface 4.31, transmembrane 3.24, extracellular matrix 3.09, pluripotency signaling 2.26, cellular response to hypoxia 1.95 등</td>
+		<td>glycolytic process 4.87, cell surface 4.31, transmembrane 3.24, extracellular matrix 3.09, pluripotency signaling 2.26, cellular response to hypoxia 1.95 등 (4종 통합, 3D 기준 up/down)</td>
 	</tr>
 	<tr>
 		<td>6–9</td>
@@ -164,7 +164,7 @@ heatmap은 이미지 해상도로는 gene set 이름과 방향을 읽을 수 없
 - **batch가 cell line과 겹침** (1차 = SKOV3·A2780, 2차 = HeyA8·OVTOKO)<br>batch effect와 cell line 차이를 분리할 수 없음. 비교를 항상 cell lien 안에서 하면 문제 없을 듯.
 - **2차 sample (251112)에만 P10** 있음<br>통합 분석에서는 공통 passage(P1, P3, P5)만 쓰거나 별도로 보거나.
 - **passage는 진짜 replicate이 아님**<br>같은 배양 시간을 시간에 따라 잰 것이라 p-value가 실제보다 낙관적으로 나올 수 있다. (알아두고 결과 발표 때 한계로 명시 필요)
-- [ ] 원본 받기: heatmap 점수 표, 카테고리별 gene set 목록, 점수 계산법(GSVA? ssGSEA? z-score?), PCA 입력(전체 유전자인지 상위 변동 유전자인지, 정규화 방법)
+- [x] 원본 받기: heatmap 점수 표, 카테고리별 gene set 목록, 점수 계산법(GSVA? ssGSEA? z-score?), PCA 입력(전체 유전자인지 상위 변동 유전자인지, 정규화 방법)
 - [ ] 튀는 샘플 QC: A2780 3D P1, OVTOKO 3D P5, HeyA8 3D P3 — 라이브러리 크기, 매핑률, 검출 유전자 수, 미토콘드리아 비율, 실험 노트
 - [ ] "3D 안정 / 2D drift" 수치화: 2D끼리 vs 3D끼리 샘플 간 상관, passage별 P0와의 거리
 - [ ] heatmap을 통계로: 카테고리 점수를 같은 passage끼리 3D − 2D로 계산 → 세포주별 "3D에서 높음/낮음" 요약표
@@ -210,9 +210,9 @@ mutation 쪽과 RNA 쪽은 동시에 진행할 가능, 둘이 4에서 만나야 
 
 **2. RNA 재점검**
 
-- [ ] 32개 샘플 count matrix 확보 (ppt DEG 157/39의 분석 조건: 툴, cutoff, pooled 여부 포함)
-- [ ] 샘플 메타데이터 표 작성 (sample, cell_line, batch, dimension, passage)
-- [ ] QC: 전체·세포주별 PCA, passage 흐름, 배치 확인
+- [x] 32개 샘플 count matrix 확보 (ppt DEG 157/39의 분석 조건: 툴, cutoff, pooled 여부 포함)
+- [x] 샘플 메타데이터 표 작성 (sample, cell_line, batch, dimension, passage)
+- [x] QC: 전체·세포주별 PCA, passage 흐름, 배치 확인
 
 **3. 세포주별 pathway**
 
@@ -450,7 +450,7 @@ DepMap 아형으로 나누면 HGSOC = TP53/HR(OVCAR-3, OVSAHO), Endometrioid = P
 
 **체크포인트:** SKOV3의 TP53은 문헌마다 "wild-type" 또는 "null"로 표기가 갈린다. DepMap 확인 결과 TP53 S90Pfs\*33 (frameshift, allele fraction 0.97)이라 단백이 만들어지지 않는 null이다.
 
-**가설 하나:** ppt의 상위 pathway(glycolysis, hypoxia)는 clear cell의 특징과 겹친다. clear cell 세포주(OVTOKO, 추후 RMG1·RMG2)가 이 신호를 주도하는지, 아니면 아형과 무관하게 공통인지가 첫 번째 볼 질문이다.
+**가설 하나:** ppt 슬라이드 5는 4개 세포주를 합쳐 3D vs 2D의 up/down을 본 통합 분석이다. 그 상위 pathway(glycolysis, hypoxia)는 clear cell의 특징과 겹친다. clear cell 세포주(OVTOKO, 추후 RMG1·RMG2)가 이 신호를 주도하는지, 아니면 아형과 무관하게 공통인지가 첫 번째 볼 질문이다.
 
 ### Step 3. CCLE 사용법
 
